@@ -1,0 +1,32 @@
+%%%% PLEASE REPLACE ENTIRELY WITH YOUR OWN CONTENT %%%%
+
+\ifcase\doclanguage\or
+\chapter{Anàlisi de sostenibilitat i implicacions ètiques}
+Des del curs 2023-24, la normativa de TFG de l'ETSETB demana la inclusió d'un informe de sostenibilitat a la memòria del treball. Aquesta anàlisi consisteix en una valoració dels impactes ambientals, socials i econòmics, i les possibles implicacions ètiques que ha comportat la realització del TFG. En el cas que el TFG plantegi un producte/servei/sistema/edifici/etc., que podria arribar a implementar-se, l’anàlisi també ha de realitzar-se sobre els impactes que tindria la proposta en la seva execució durant les diferents etapes del seu cicle de vida.
+
+A la plataforma ATENEA trobareu un document separat amb les instruccions detallades de què ha de contenir i com cal confeccionar l'informe de sostenibilitat.
+
+{\bigskip\bfseries {\large IMPORTANT:} Noteu que l'antic capítol de «Pressupost del projecte» ara queda integrat en l'anàlisi de sostenibilitat, concretament en les cel·les «Econòmic/Desenvolupament del TFG» i «Econòmic/Execució del projecte».}
+
+\else
+\chapter{Sustainability Analysis and Ethical Implications}
+
+The sustainability of technological innovations, particularly those involving artificial intelligence and large-scale data processing, requires careful assessment across environmental, social, economic, and ethical dimensions. This section evaluates the broader impacts of the project and discusses potential societal implications associated with advancing this technology.
+
+%Environmental Impact
+
+The development, training, and deployment of machine learning models require substantial computational workloads, which translate into energy consumption and associated environmental costs. In this project, the processing of visual data during the preparation phase and the subsequent fine-tuning and evaluation of the model contribute to the overall computational demand.
+
+%Resource Usage
+
+Training machine learning models requires considerable electricity due to the intensive operations involved. The NVIDIA T4 available on Google Colab, used for this project, consumes approximately 70W, emphasizing the importance of efficient resource usage during training.
+
+The T4 GPU was selected because GPUs are optimized for parallel computation, enabling them to conduct multiple operations simultaneously. This significantly reduces training time compared to CPU-only systems and makes GPUs particularly effective for large-scale datasets and complex neural network architectures. While GPUs consume more power than CPUs, the computational efficiency they provide justifies their use in scenarios where model training time and throughput are critical.
+
+Storage requirements also contribute to environmental impact. The project requires approximately [Xbytes] of storage, primarily due to the datasets used in model training. Storage infrastructure has its own energy overhead: maintaining 1 terabyte of data in a data center typically consumes around 100 kWh annually. Consequently, managing [Xbytes] of data would result in an estimated annual energy consumption of [X kWh], excluding the additional energy needed for data processing and cooling. Implementing effective data management and pruning strategies is therefore essential to minimize environmental impact when handling large-scale datasets.
+
+%Carbon Footprint
+
+Training AI models contributes to carbon emissions, as the electricity used by computational hardware often originates from carbon-intensive energy sources. Although an exact carbon footprint cannot be calculated without detailed measurements of power usage, hardware efficiency, and local energy mixes, we can estimate the approximate environmental impact associated with the model training process. These estimates help highlight the importance of optimizing training pipelines, adopting energy-efficient hardware, and exploring low-carbon or renewable energy options where available.
+
+\fi

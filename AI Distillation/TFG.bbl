@@ -1,0 +1,1066 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{cho2019efficacyknowledgedistillation}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=f6207727abe8018c9d906dea171ec256}{%
+           family={Cho},
+           familyi={C\bibinitperiod},
+           given={Jang\bibnamedelima Hyun},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=9cadf8ca1dd9b5f5a830ba2059b2517f}{%
+           family={Hariharan},
+           familyi={H\bibinitperiod},
+           given={Bharath},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{fullhash}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{fullhashraw}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{bibnamehash}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{authorbibnamehash}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{authornamehash}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{authorfullhash}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \strng{authorfullhashraw}{5e0e10c435848f17184f4fcfccd7bb0c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{On the Efficacy of Knowledge Distillation}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{eprint}
+      \verb 1910.01348
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1910.01348
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1910.01348
+      \endverb
+    \endentry
+    \entry{dettmers2023qloraefficientfinetuningquantized}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=67a40f4e13f66c2e43ce4d7d64b9d9a4}{%
+           family={Dettmers},
+           familyi={D\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=14917de5b5a7cbc3cd12e6467297e657}{%
+           family={Pagnoni},
+           familyi={P\bibinitperiod},
+           given={Artidoro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c32ace2a5a2590ef3542c3713e05925d}{%
+           family={Holtzman},
+           familyi={H\bibinitperiod},
+           given={Ari},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1dbd3a5b42828fb2cebd7786488ba425}{%
+           family={Zettlemoyer},
+           familyi={Z\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{a50dbcd4c24eb2e86d45d36ef4076dc0}
+      \strng{fullhash}{1bf24d73d3c3884f634a1b420205ff86}
+      \strng{fullhashraw}{1bf24d73d3c3884f634a1b420205ff86}
+      \strng{bibnamehash}{a50dbcd4c24eb2e86d45d36ef4076dc0}
+      \strng{authorbibnamehash}{a50dbcd4c24eb2e86d45d36ef4076dc0}
+      \strng{authornamehash}{a50dbcd4c24eb2e86d45d36ef4076dc0}
+      \strng{authorfullhash}{1bf24d73d3c3884f634a1b420205ff86}
+      \strng{authorfullhashraw}{1bf24d73d3c3884f634a1b420205ff86}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{QLoRA: Efficient Finetuning of Quantized LLMs}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2305.14314
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2305.14314
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2305.14314
+      \endverb
+    \endentry
+    \entry{einstein}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ebf53e52a3ce84f0ffb8553200a6a63}{%
+           family={Einstein},
+           familyi={E\bibinitperiod},
+           given={Albert},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{fullhash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{fullhashraw}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{bibnamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authorbibnamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authornamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authorfullhash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authorfullhashraw}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annalen der Physik}
+      \field{number}{10}
+      \field{title}{Zur Elektrodynamik bewegter Körper}
+      \field{volume}{322}
+      \field{year}{1905}
+      \field{dateera}{ce}
+      \true{nocite}
+      \field{pages}{891\bibrangedash 921}
+      \range{pages}{31}
+    \endentry
+    \entry{booktabs}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=413eba48fd96db4099753e792e1fc966}{%
+           family={Fear},
+           familyi={F\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{413eba48fd96db4099753e792e1fc966}
+      \strng{fullhash}{413eba48fd96db4099753e792e1fc966}
+      \strng{fullhashraw}{413eba48fd96db4099753e792e1fc966}
+      \strng{bibnamehash}{413eba48fd96db4099753e792e1fc966}
+      \strng{authorbibnamehash}{413eba48fd96db4099753e792e1fc966}
+      \strng{authornamehash}{413eba48fd96db4099753e792e1fc966}
+      \strng{authorfullhash}{413eba48fd96db4099753e792e1fc966}
+      \strng{authorfullhashraw}{413eba48fd96db4099753e792e1fc966}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{\texttt{booktabs} – Publication quality tables in \LaTeX}
+      \field{urlday}{1}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://mirrors.ctan.org/macros/latex/contrib/booktabs/booktabs.pdf
+      \endverb
+      \verb{url}
+      \verb http://mirrors.ctan.org/macros/latex/contrib/booktabs/booktabs.pdf
+      \endverb
+    \endentry
+    \entry{pgfplots}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=54e3dc3174a4975a8b3c659eae485f25}{%
+           family={Feuersänger},
+           familyi={F\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{fullhash}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{fullhashraw}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{bibnamehash}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{authorbibnamehash}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{authornamehash}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{authorfullhash}{54e3dc3174a4975a8b3c659eae485f25}
+      \strng{authorfullhashraw}{54e3dc3174a4975a8b3c659eae485f25}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Manual for Package \textsc{pgfplots}}
+      \field{urlday}{3}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://mirrors.ctan.org/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf
+      \endverb
+      \verb{url}
+      \verb http://mirrors.ctan.org/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf
+      \endverb
+    \endentry
+    \entry{feynman1963lectures}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=aac54ccf9c76aa4ba4310ed1334be7d8}{%
+           family={Feynman},
+           familyi={F\bibinitperiod},
+           given={Richard\bibnamedelima P.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=773368378dd55945d3bd474598026757}{%
+           family={Leighton},
+           familyi={L\bibinitperiod},
+           given={Robert\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=4f87088a881a2ce53ad4cf6dac2c63fb}{%
+           family={Sands},
+           familyi={S\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{fullhash}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{fullhashraw}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{bibnamehash}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{authorbibnamehash}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{authornamehash}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{authorfullhash}{6c2091b1797daa148c03a73977b7dd36}
+      \strng{authorfullhashraw}{6c2091b1797daa148c03a73977b7dd36}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0201021165}
+      \field{title}{The Feynman Lectures on Physics}
+      \field{volume}{I-III}
+      \field{year}{1963}
+      \true{nocite}
+    \endentry
+    \entry{he2015deepresiduallearningimage}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=5e72bc22dbcf0984c6d113d280e36990}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bb295293acacd54387339079ebbe4ead}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Shaoqing},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f85751488058842b5777c7b4074077b5}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{fullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \strng{fullhashraw}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \strng{bibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorbibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authornamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorfullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \strng{authorfullhashraw}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Deep Residual Learning for Image Recognition}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb 1512.03385
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1512.03385
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1512.03385
+      \endverb
+    \endentry
+    \entry{hinton2015distillingknowledgeneuralnetwork}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod}}}%
+        {{hash=494b568c5dc85ba8f3f409635f9c5f25}{%
+           family={Vinyals},
+           familyi={V\bibinitperiod},
+           given={Oriol},
+           giveni={O\bibinitperiod}}}%
+        {{hash=62f954323339abeba6c6a240e9d2855b}{%
+           family={Dean},
+           familyi={D\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{fullhash}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{fullhashraw}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{bibnamehash}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{authorbibnamehash}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{authornamehash}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{authorfullhash}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \strng{authorfullhashraw}{ffe4fa3a93a3b1a8ca1d3c8b76f864d7}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{stat.ML}
+      \field{eprinttype}{arXiv}
+      \field{title}{Distilling the Knowledge in a Neural Network}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb 1503.02531
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1503.02531
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1503.02531
+      \endverb
+    \endentry
+    \entry{hu2021loralowrankadaptationlarge}{misc}{}{}
+      \name{author}{8}{}{%
+        {{hash=e6a95d07b8ae7f14e4eb777c6980a059}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Edward\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=1701c0f05662e92cf52cfc8c16437496}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Yelong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ab0fdbc1586103dda7ac5e0852e5b2c3}{%
+           family={Wallis},
+           familyi={W\bibinitperiod},
+           given={Phillip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=eaa5cc98b7f19b4ce07c832213a13b9d}{%
+           family={Allen-Zhu},
+           familyi={A\bibinithyphendelim Z\bibinitperiod},
+           given={Zeyuan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0d2c91b24f885b22d373a892a768abc8}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yuanzhi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b654b88ecd4c3ff1ea29da275bce701c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Shean},
+           giveni={S\bibinitperiod}}}%
+        {{hash=55f210233ac686af68eba11a97bd84e2}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod}}}%
+        {{hash=05d71a9c5e7ac79222e01a55af0ccb93}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Weizhu},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{d775178c34083951ab1e07df578582c3}
+      \strng{fullhash}{08f4b49735d5d145be00bc9c07f38975}
+      \strng{fullhashraw}{08f4b49735d5d145be00bc9c07f38975}
+      \strng{bibnamehash}{d775178c34083951ab1e07df578582c3}
+      \strng{authorbibnamehash}{d775178c34083951ab1e07df578582c3}
+      \strng{authornamehash}{d775178c34083951ab1e07df578582c3}
+      \strng{authorfullhash}{08f4b49735d5d145be00bc9c07f38975}
+      \strng{authorfullhashraw}{08f4b49735d5d145be00bc9c07f38975}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{title}{LoRA: Low-Rank Adaptation of Large Language Models}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2106.09685
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2106.09685
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2106.09685
+      \endverb
+    \endentry
+    \entry{biblatex}{online}{}{}
+      \name{author}{3}{}{%
+        {{hash=518f52ea2d73db1cfac0095db0482363}{%
+           family={Kime},
+           familyi={K\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e1cc18b9b6d3955ba487be6c20e4d7db}{%
+           family={Wemheuer},
+           familyi={W\bibinitperiod},
+           given={Moritz},
+           giveni={M\bibinitperiod}}}%
+        {{hash=97afecc8539f253db93a1c737d62212c}{%
+           family={Lehman},
+           familyi={L\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{fullhash}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{fullhashraw}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{bibnamehash}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{authorbibnamehash}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{authornamehash}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{authorfullhash}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \strng{authorfullhashraw}{f2d88e724e6451f7dbcac6df4175bf7e}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The \texttt{biblatex} Package}
+      \field{urlday}{6}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ctan.org/pkg/biblatex
+      \endverb
+      \verb{url}
+      \verb https://ctan.org/pkg/biblatex
+      \endverb
+    \endentry
+    \entry{knuthwebsite}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=1dd533466eb3313074d496394d319407}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1dd533466eb3313074d496394d319407}
+      \strng{fullhash}{1dd533466eb3313074d496394d319407}
+      \strng{fullhashraw}{1dd533466eb3313074d496394d319407}
+      \strng{bibnamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authorbibnamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authornamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authorfullhash}{1dd533466eb3313074d496394d319407}
+      \strng{authorfullhashraw}{1dd533466eb3313074d496394d319407}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Knuth: Computers and Typesetting}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www-cs-faculty.stanford.edu/~knuth/abcde.html
+      \endverb
+      \verb{url}
+      \verb https://www-cs-faculty.stanford.edu/~knuth/abcde.html
+      \endverb
+    \endentry
+    \entry{knuth1986texbook}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=ec08e6f01da5f3814f28a70c89c64656}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{fullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{fullhashraw}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{bibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorbibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authornamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorfullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorfullhashraw}{ec08e6f01da5f3814f28a70c89c64656}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-201-13448-9}
+      \field{title}{The {\TeX}book}
+      \field{year}{1986}
+      \true{nocite}
+    \endentry
+    \entry{lamport1994latex2e}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           familyi={L\bibinitperiod},
+           given={Leslie},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhashraw}{5d77435450d10a850a5b58577b9a456b}
+      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhashraw}{5d77435450d10a850a5b58577b9a456b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-201-52983-1}
+      \field{title}{{\LaTeX}: A Document Preparation System, 2nd Edition}
+      \field{year}{1994}
+      \true{nocite}
+    \endentry
+    \entry{latexcompanion}{mvbook}{}{}
+      \name{author}{2}{}{%
+        {{hash=9355edd511e3f6fdd880ee98722a53fb}{%
+           family={Mittelbach},
+           familyi={M\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+        {{hash=d6d562299dfc8afecf465b99cb1b455d}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={Ulrike},
+           giveni={U\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{fullhash}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{fullhashraw}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{bibnamehash}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{authorbibnamehash}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{authornamehash}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{authorfullhash}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \strng{authorfullhashraw}{67a85c89a7561a0c9fef05ec3a7b2b29}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{The \LaTeX{} Companion}
+      \field{volumes}{2}
+      \field{year}{2023}
+      \true{nocite}
+    \endentry
+    \entry{moslem-2025-efficient}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=1132a3da91854427f459c2ea4d2d66bf}{%
+           family={Moslem},
+           familyi={M\bibinitperiod},
+           given={Yasmin},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{fullhash}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{fullhashraw}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{bibnamehash}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{authorbibnamehash}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{authornamehash}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{authorfullhash}{1132a3da91854427f459c2ea4d2d66bf}
+      \strng{authorfullhashraw}{1132a3da91854427f459c2ea4d2d66bf}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 22nd International Conference on Spoken Language Translation (IWSLT 2025)}
+      \field{title}{Efficient Speech Translation through Model Compression and Knowledge Distillation}
+      \field{year}{2025}
+      \field{pages}{379\bibrangedash 388}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.18653/v1/2025.iwslt-1.40
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.18653/v1/2025.iwslt-1.40
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.18653/v1/2025.iwslt-1.40
+      \endverb
+    \endentry
+    \entry{notsoshort}{online}{}{}
+      \name{author}{5}{}{%
+        {{hash=5d11479143005f8afd00a80db661847f}{%
+           family={Oetiker},
+           familyi={O\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=55f504e077a7d1828c4907f0fa0fb8a3}{%
+           family={Serwin},
+           familyi={S\bibinitperiod},
+           given={Marcin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8ca96670929452aa6904ed514c3b557d}{%
+           family={Partl},
+           familyi={P\bibinitperiod},
+           given={Hubert},
+           giveni={H\bibinitperiod}}}%
+        {{hash=031f631d171b0eed51d498c3a8492529}{%
+           family={Hyna},
+           familyi={H\bibinitperiod},
+           prefix={rene},
+           prefixi={r\bibinitperiod}}}%
+        {{hash=fee52439e42a7c11d0e0236fbedbf793}{%
+           family={Schlegl},
+           familyi={S\bibinitperiod},
+           prefix={isabeth},
+           prefixi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{fullhash}{e8722176a9e06de4cd1c80cbec9e50b4}
+      \strng{fullhashraw}{e8722176a9e06de4cd1c80cbec9e50b4}
+      \strng{bibnamehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{authorbibnamehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{authornamehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{authorfullhash}{e8722176a9e06de4cd1c80cbec9e50b4}
+      \strng{authorfullhashraw}{e8722176a9e06de4cd1c80cbec9e50b4}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Not So Short Introduction to \LaTeX}
+      \field{urlday}{31}
+      \field{urlmonth}{10}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://tobi.oetiker.ch/lshort/lshort.pdf
+      \endverb
+      \verb{url}
+      \verb https://tobi.oetiker.ch/lshort/lshort.pdf
+      \endverb
+    \endentry
+    \entry{sandler2019mobilenetv2invertedresidualslinear}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=8f90fd131c2bbfde4d0e9fdd7ed4ea8b}{%
+           family={Sandler},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=315c4166fc1f7cb66324a7f0d82827cd}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d767e8e4d733bcf728bcdf2c193462f7}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Menglong},
+           giveni={M\bibinitperiod}}}%
+        {{hash=48f4090a93cf9f445057a9d6defe7973}{%
+           family={Zhmoginov},
+           familyi={Z\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9dddfcfd529634a150ee38ee5c0203d7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Liang-Chieh},
+           giveni={L\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{70179dd377b16c4cfcc0748ef0bd028a}
+      \strng{fullhash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{fullhashraw}{8d58d04315a5e1c06300772330b235d7}
+      \strng{bibnamehash}{70179dd377b16c4cfcc0748ef0bd028a}
+      \strng{authorbibnamehash}{70179dd377b16c4cfcc0748ef0bd028a}
+      \strng{authornamehash}{70179dd377b16c4cfcc0748ef0bd028a}
+      \strng{authorfullhash}{8d58d04315a5e1c06300772330b235d7}
+      \strng{authorfullhashraw}{8d58d04315a5e1c06300772330b235d7}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{MobileNetV2: Inverted Residuals and Linear Bottlenecks}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1801.04381
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1801.04381
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1801.04381
+      \endverb
+    \endentry
+    \entry{shannon1948}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=536c91678d1dde76c9acd47047556291}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={Claude\bibnamedelima E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{536c91678d1dde76c9acd47047556291}
+      \strng{fullhash}{536c91678d1dde76c9acd47047556291}
+      \strng{fullhashraw}{536c91678d1dde76c9acd47047556291}
+      \strng{bibnamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorbibnamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authornamehash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorfullhash}{536c91678d1dde76c9acd47047556291}
+      \strng{authorfullhashraw}{536c91678d1dde76c9acd47047556291}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Bell System Technical Journal}
+      \field{number}{3}
+      \field{title}{A Mathematical Theory of Communication}
+      \field{volume}{27}
+      \field{year}{1948}
+      \true{nocite}
+      \field{pages}{379\bibrangedash 423}
+      \range{pages}{45}
+      \verb{doi}
+      \verb 10.1002/j.1538-7305.1948.tb01338.x
+      \endverb
+    \endentry
+    \entry{skalagantt}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b04b56c40726eff5a489a1ba8a09444f}{%
+           family={Skala},
+           familyi={S\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{fullhash}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{fullhashraw}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{bibnamehash}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{authorbibnamehash}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{authornamehash}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{authorfullhash}{b04b56c40726eff5a489a1ba8a09444f}
+      \strng{authorfullhashraw}{b04b56c40726eff5a489a1ba8a09444f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Drawing Gantt Charts in \LaTeX{} with TikZ}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://osl.ugr.es/CTAN/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf
+      \endverb
+      \verb{url}
+      \verb http://osl.ugr.es/CTAN/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf
+      \endverb
+    \endentry
+    \entry{tcolorbox}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e918ef9a00fed7239130a97d0dde1ac}{%
+           family={Sturm},
+           familyi={S\bibinitperiod},
+           given={Thomas\bibnamedelima F.},
+           giveni={T\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{fullhash}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{fullhashraw}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{bibnamehash}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{authorbibnamehash}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{authornamehash}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{authorfullhash}{3e918ef9a00fed7239130a97d0dde1ac}
+      \strng{authorfullhashraw}{3e918ef9a00fed7239130a97d0dde1ac}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The \texttt{tcolorbox} package}
+      \field{urlday}{5}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://mirrors.ctan.org/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+      \endverb
+      \verb{url}
+      \verb http://mirrors.ctan.org/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+      \endverb
+    \endentry
+    \entry{tikz}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=129e88d9b4e0ba07ca911d6e9aebfaca}{%
+           family={Tantau},
+           familyi={T\bibinitperiod},
+           given={Till},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{fullhash}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{fullhashraw}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{bibnamehash}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{authorbibnamehash}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{authornamehash}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{authorfullhash}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \strng{authorfullhashraw}{129e88d9b4e0ba07ca911d6e9aebfaca}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The TikZ and PGF Packages}
+      \field{urlday}{2}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf
+      \endverb
+      \verb{url}
+      \verb http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf
+      \endverb
+    \endentry
+    \entry{wang2022efficientknowledgedistillationmodel}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=0e5511f9544200bd83fcc63dc621d6e1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chaofei},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5d9306b0c8d93f356504faec5e86fdf7}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Qisen},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=6914f2dac03de61fee76eecb36c759d1}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+        {{hash=1184f58bd9293ce5d9a8b33fa6c10d9e}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Shiji},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0d12f90a1d1945cb1b98f583c9dc9572}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Gao},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{bcf9daaf29db558f247d6684e22a178f}
+      \strng{fullhash}{e115911a370bb28a6de606d8692bd7b0}
+      \strng{fullhashraw}{e115911a370bb28a6de606d8692bd7b0}
+      \strng{bibnamehash}{bcf9daaf29db558f247d6684e22a178f}
+      \strng{authorbibnamehash}{bcf9daaf29db558f247d6684e22a178f}
+      \strng{authornamehash}{bcf9daaf29db558f247d6684e22a178f}
+      \strng{authorfullhash}{e115911a370bb28a6de606d8692bd7b0}
+      \strng{authorfullhashraw}{e115911a370bb28a6de606d8692bd7b0}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Efficient Knowledge Distillation from Model Checkpoints}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{eprint}
+      \verb 2210.06458
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2210.06458
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2210.06458
+      \endverb
+    \endentry
+    \entry{siunitx}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=93c71fed62527d4c8c6ae13ee771fcdd}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{fullhash}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{fullhashraw}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{bibnamehash}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{authorbibnamehash}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{authornamehash}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{authorfullhash}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \strng{authorfullhashraw}{93c71fed62527d4c8c6ae13ee771fcdd}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{\texttt{siunitx} – A comprehensive (SI) units package}
+      \field{urlday}{8}
+      \field{urlmonth}{11}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ctan.org/pkg/siunitx
+      \endverb
+      \verb{url}
+      \verb https://ctan.org/pkg/siunitx
+      \endverb
+    \endentry
+    \entry{wu2024knowledgedistillationfederatededge}{misc}{}{}
+      \name{author}{7}{}{%
+        {{hash=1f36c223ba81d26a467aeb7320a3c4f7}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Zhiyuan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=afecce5c8a41ed6ba4a0bbcdede604ba}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1253e8775cc846caa45f758a8d810a10}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yuwei},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1c1849178c68a5d6d69e9f789392d65d}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5c694de39320bbe4fd1467e9e925363d}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Xuefeng},
+           giveni={X\bibinitperiod}}}%
+        {{hash=5da4f77978c34a91999d3d294dae7bf1}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Runhan},
+           giveni={R\bibinitperiod}}}%
+        {{hash=fe67c97706ec9f767e5fcf6da316a890}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{4d1375a34231d27bbb79dc49e17ed184}
+      \strng{fullhash}{00cdf2189061c80cebbc7b5f2804df91}
+      \strng{fullhashraw}{00cdf2189061c80cebbc7b5f2804df91}
+      \strng{bibnamehash}{4d1375a34231d27bbb79dc49e17ed184}
+      \strng{authorbibnamehash}{4d1375a34231d27bbb79dc49e17ed184}
+      \strng{authornamehash}{4d1375a34231d27bbb79dc49e17ed184}
+      \strng{authorfullhash}{00cdf2189061c80cebbc7b5f2804df91}
+      \strng{authorfullhashraw}{00cdf2189061c80cebbc7b5f2804df91}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Knowledge Distillation in Federated Edge Learning: A Survey}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2301.05849
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2301.05849
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2301.05849
+      \endverb
+    \endentry
+    \entry{zhang2025parameterefficientfinetuningfoundationmodels}{misc}{}{}
+      \name{author}{6}{}{%
+        {{hash=8d3346030389bb4358dd53ef845ff0b1}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2d9333d40be6a603e0f2030116275b87}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod}}}%
+        {{hash=163112312eed217357ffc85c40e9385a}{%
+           family={Xue},
+           familyi={X\bibinitperiod},
+           given={Lilong},
+           giveni={L\bibinitperiod}}}%
+        {{hash=6cf8916a61a55bf5f5ae915b48cb3e7a}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yuandong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5fd8ccf894ae8131d46d95e71572ffae}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Yuxiao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d0b3008e85b1a8b38f46556abf1791c7}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{c2be0b652256cb0412b7ee17caebf9d9}
+      \strng{fullhash}{95e3c92e0313d1ced23c785ce6795c46}
+      \strng{fullhashraw}{95e3c92e0313d1ced23c785ce6795c46}
+      \strng{bibnamehash}{c2be0b652256cb0412b7ee17caebf9d9}
+      \strng{authorbibnamehash}{c2be0b652256cb0412b7ee17caebf9d9}
+      \strng{authornamehash}{c2be0b652256cb0412b7ee17caebf9d9}
+      \strng{authorfullhash}{95e3c92e0313d1ced23c785ce6795c46}
+      \strng{authorfullhashraw}{95e3c92e0313d1ced23c785ce6795c46}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{title}{Parameter-Efficient Fine-Tuning for Foundation Models}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2501.13787
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2501.13787
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2501.13787
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,214 @@
+%%%% PLEASE REPLACE ENTIRELY WITH YOUR OWN CONTENT %%%%
+
+\ifcase\doclanguage
+\or
+  \chapter{Introducció}
+\else
+  \chapter{Introduction}
+\fi
+
+\ifcase\doclanguage
+\or
+\section{Objectius del treball}
+\else
+\section{Motivation}
+\fi
+
+This project aims to enhance the efficiency and usability of large AI models, specifically deep learning models used in Computer Vision (CV), when deployed on edge devices with limited resources. The aim is to reduce the computational demands of these models without sacrificing performance by developing a modular pipeline that integrates knowledge distillation, LoRA fine-tuning, and quantization techniques. The project systematically quantifies the trade-offs between model performance (accuracy) and efficiency (size, latency, computational cost) at each stage of the pipeline, applying information-theoretic principles for efficient knowledge transfer and exploring its applicability within a federated edge learning context.
+
+This will be achieved by integrating three core methodologies to shrink a large AI model (ResNet-18) into a compact, efficient version (MobileNetV2):
+
+\begin{enumerate}
+	\item Knowledge Distillation: Train a small AI model to mimic a larger, more complex one by transferring the teacher’s knowledge into a student. 
+	\item LoRA Fine-Tuning: Adjust the small model for specific tasks without increasing unnecessary size. 
+	\item Quantization: Simplify how the model handles numbers, cutting memory usage and battery drain.
+\end{enumerate}
+
+The project empirically validates this pipeline, providing a clear methodology for developing lightweight, task-specialized AI suitable for edge computing applications. The methodology is grounded in information theory to maximize knowledge transfer and is designed with federated edge learning in mind, enabling collaborative training without centralizing user data.
+
+\ifcase\doclanguage
+\or
+  \section{Objectius del treball}
+\else
+  \section{Work goals}
+\fi
+
+The purpose of this project is to address the deployment of large, powerful AI models on resource-constrained edge devices (e.g., smartphones and IoT sensors) by designing, implementing, and evaluating a modular, three-stage pipeline. This pipeline systematically combines knowledge distillation, Low-Rank Adaptation (LoRA), and quantization to create a lightweight yet functional version of a standard computer vision model.
+
+Furthermore, the project will be grounded in information theory to guide the distillation process, ensuring that the student model learns to compress the input while preserving the maximum information about the teacher's predictions. %The pipeline is also designed for future deployment in a Federated Edge Learning environment. In this setting, 
+Knowledge distillation is a mechanism that enables communication-efficient and privacy-preserving collaborative training across multiple devices.
+
+To achieve the main goal of developing and evaluating a compressed student model, the project has the following specific objectives:
+
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+\begin{enumerate}
+	\item Hybrid Distillation-LoRA Framework: Develop a two-phase approach where a compact student model is first distilled from a large pre-trained AI model and then fine-tuned using low-rank adaptation to achieve task-specific performance improvements.
+	\begin{enumerate}
+		\item Develop a mini-model for hardware with limited resources: Create a compact model based on a method to distill knowledge from a large AI into a smaller, lighter model that can run efficiently on T4 Colab.
+		\item Optimize this Lightweight Version to minimize memory usage for CV by Fine-Tuning with Low-Rank Adaptation: Use techniques like LoRA to further optimize the smaller model for specific tasks, improving its performance without increasing its size significantly.
+	\end{enumerate}
+	\item Reduce Computational Costs through Quantization and Edge Optimization: Apply quantization strategies to shrink the model’s size and lower its energy consumption, making it suitable for real-world applications. In other words, implement quantization-aware distillation methods to reduce model size and computational complexity, ensuring viability for edge deployment. 
+	\item Evaluate the resulting AI model against the original using standard metrics for speed, memory usage, and accuracy:
+	\begin{enumerate}
+		\item Evaluate Performance: Test the optimized model on practical tasks (e.g., object classification), analyzing how well it balances size, speed, and accuracy.
+		\item Study Fine-Tuning Dynamics: Investigate how the initial distillation phase impacts the efficiency and effectiveness of subsequent LoRA-based fine-tuning, identifying the most critical elements of the original large AI model knowledge for downstream performance.
+	\end{enumerate}
+	The evaluation will be done in parallel with knowledge distillation and fine-tuning. 
+	\item Frame the distillation process within an information-theoretic context: Analyze knowledge transfer within an information-theoretic context, and explore extending the above pipeline to a Federated Learning setting for decentralized, privacy-preserving training.
+\end{enumerate}
+
+\ifcase\doclanguage
+\or
+  \section{Requisits i especificacions}
+\else
+  \section{Requirements and specifications}
+\fi
+
+A set of requirements has been defined to ensure that the developed system meets the objectives, covering key points such as the model’s capabilities and its evaluation.
+
+\textbf{Requirements}
+
+\begin{table}[H]
+	\resizebox{\columnwidth}{!}{
+		\begin{tabular}{|m{3.5cm}|p{11cm}|}\hline
+			\rowcolor{maroon}
+			\textbf{Requirement} & \textbf{Description} \\ \hline
+			Benchmark & The distilled model must retain high accuracy compared to their teacher while being deployable on resource-constrained edge devices. \\ \hline
+			Efficiency & The lightweight model must demonstrate reduced computational cost and inference time. \\ \hline
+			Pipeline & The pipeline must integrate knowledge distillation, LoRA fine-tuning and quantization. It must be reproducible and modular for future extensions. \\ \hline
+			Evaluation & The resulting model must be evaluated on standard CV benchmarks and framed within an information-theoretic perspective. \\ \hline
+		\end{tabular}
+	}
+	\caption{Requirements table}
+	\label{table:requirements_table}
+\end{table}
+
+\textbf{Specifications}
+
+\begin{table}[H]
+	\resizebox{\columnwidth}{!}{
+		\begin{tabular}{|p{3.5cm}|p{11cm}|}\hline
+			\rowcolor{maroon}
+			\textbf{Specification} & \textbf{Description} \\ \hline
+			Accuracy & The student model must achieve 90\% accuracy of the teacher model.                                                                                     \\ \hline
+			Model size & The model must reduce \textgreater{}75\% of the original size.                                                                                  \\ \hline
+			Time optimization     & The model must reduce inference time. \\ \hline
+			Development platform         & The developed system must be compatible with major operating systems such as Linux, macOS, Windows. \\ \hline
+		\end{tabular}
+	}
+	\caption{Specifications table}
+	\label{table:specifications_table}
+\end{table}
+
+\textbf{Model Architectures:}
+
+The selection of teacher and student models is designed to create a realistic and challenging distillation scenario.
+
+\begin{list}{-}{}
+	\item \textbf{Teacher Model: ResNet-18:} This architecture is selected for its known high performance in CV, since it can learn complex, non-linear channel features, establishing a strong upper-bound for accuracy.
+	\item \textbf{Student Model: MobileNetV2:} This model is chosen as a prototypical lightweight architecture for edge devices. Its efficiency comes from the use of depthwise separable convolutions, which drastically reduce the parameter count and computational load compared to standard convolutions. The significant architectural differences between ResNet-18 and MobileNetV2 make them excellent test cases for evaluating the effectiveness of different distillation techniques.
+\end{list}
+ 
+\ifcase\doclanguage
+\or
+  \section{Mètodes i procediments}
+\else
+  \section{Methods and procedures}
+\fi
+
+The project builds upon existing state-of-the-art technologies, architectures and methods developed by other authors:
+
+\begin{list}{-}{}
+	\item Teacher model: ResNet-18 (He et al., 2015)
+	\item Student model: MobileNetV2 (Sandler et al., 2018)
+	\item Distillation methods: based on Hinton et al. (2015)
+	\item LoRA fine-tuning: Low-rank adaptation methods (Hu et al., 2021)
+\end{list}
+
+The project is conducted independently and does not form part of any department or company research or development project. The UPC supervisor provided the foundational concepts and initial ideas, which were then complemented by the supervisor at Linköping University.
+
+\ifcase\doclanguage
+\or
+  \section{Pla de treball}
+\else
+  \section{Work plan}
+\fi
+\label{sec:workplan}
+
+\ifcase\doclanguage
+\or
+  Normalment les figures i taules es col·loquen en els entorns \verb|\figure| i \verb|\table|, que poden flotar lliurement en el document. Pots identificar cada flotant amb un \verb|\label|
+\else
+
+  The project is structured into three overlapping phases over 17 weeks (September 1, 2025 – December 20, 2025), ensuring a clear progression from foundational development to advanced analysis.
+  
+  Distillation-LoRA Framework \& Initial Evaluation. This phase focuses on implementing the core compression pipeline. The key objective is a functional, fine-tuned student model benchmarked against the original teacher and baseline student.
+  
+  Quantization \& Continued Evaluation. This phase builds on Phase 1 by applying the final compression stage, quantization. The objective is the final, fully compressed model, and a complete set of experimental results.
+  
+  Theoretical Analysis, Final Report, and Submission. This final phase is dedicated to the theoretical framing of the project, in-depth analysis of the results, and writing the thesis document.
+   
+  Work Packages
+  
+  \begin{itemize}
+  	\item WP1: Distillation-LoRA Framework \& Evaluation
+  	\begin{itemize}
+  		\item Tasks:
+  		\begin{itemize}
+  			\item T1.1: Comprehensive literature review on KD, LoRA, and quantization.
+  			\item T1.2: Setup of development environment (PyTorch, Colab).
+  			\item T1.3: Implementation of data loading and preprocessing for CIFAR-100.
+  			\item T1.4: Train and benchmark the ResNet-18 teacher and baseline MobileNetV2 student.
+  			\item T1.5: Implement the knowledge distillation framework and train the distilled student model.
+  			\item T1.6: Implement LoRA fine-tuning on the distilled student model.
+  			\item T1.7: Benchmark all intermediate models (teacher, baseline, distilled, LoRA-tuned).
+  		\end{itemize}
+  	\end{itemize}
+  	\item WP2: Quantization \& Theoretical Framing
+  	\begin{itemize}
+  		\item Tasks:
+  		\begin{itemize}
+  			\item T2.1: Apply post-training INT8 quantization to the LoRA-tuned model.
+  			\item T2.2: Design and execute a final, comprehensive benchmarking script to evaluate all model versions on accuracy, size, latency, and FLOPs.
+  			\item T2.3: Generate all tables and visualizations for the results chapter.
+  			\item T2.4: Analyze knowledge transfer from an information-theoretic perspective.
+  			\item T2.5: Define and describe how the pipeline can be extended for Federated Edge Learning.
+  		\end{itemize}
+  	\end{itemize}
+  	\item WP3: Project Management \& Thesis Writing
+  	\begin{itemize}
+  		\item Tasks:
+  		\begin{itemize}
+  			\item T3.1: Draft Introduction and State of the Art chapters.
+  			\item T3.2: Draft Methodology chapter as WP1 and WP2 tasks are completed.
+  			\item T3.3: Draft Results, Sustainability Analysis, and Conclusion chapters.
+  			\item T3.4: Final review, formatting, and thesis submission.
+  		\end{itemize}
+  		\item Primary Deliverables:
+  		\begin{itemize}
+  			\item Proposal Presentation and TFG Work Plan. deadline: 05/10/2025
+  			\item Critical Review. deadline: 30/11/2025
+  			\item Final Bachelor's Thesis document. deadline: 18/01/2026
+  		\end{itemize}
+  	\end{itemize} 	
+  \end{itemize}
+  
+  %Below is the Gantt diagram with the timeline of the project.
+  %Normally the figures and tables are put in \verb|\figure| and \verb|\table| environments, that can float freely in the document. You can identify each float with a \verb|\label|
+\fi
+
+\begin{figure}[ht]
+  %\centering
+  %\includegraphics[width=1\textwidth]{../../Pictures/Screenshots/gantt}
+%  \input{img/gantt_diagrama}
+%  \ifcase\doclanguage
+%  \or
+%    \caption[Diagrama de Gantt del projecte]{\footnotesize{Diagrama de Gantt del projecte. Per a més informació, llegiu el manual \cite{skalagantt} de Skala.}}
+%  \else
+%    \caption[Project's Gantt diagram]{\footnotesize{Gantt diagram of the project}}
+%  \fi
+%  \label{fig:gantt}
+\end{figure}
+

@@ -1,0 +1,116 @@
+%%%% PLEASE REPLACE ENTIRELY WITH YOUR OWN CONTENT %%%%
+
+\ifcase\doclanguage
+\or
+  \chapter{Metodologia / desenvolupament del projecte}
+  
+  En aquest capítol es detallarà la metodologia emprada en la realització del treball. Té com a objectiu oferir un compte detallat de les aproximacions i tècniques utilitzades, assegurant la replicabilitat i el rigor acadèmic. No només cobrirà els mètodes de recerca i tècniques de mesurament emprats, sinó que també aprofundirà en les especificitats del desenvolupament de programari i maquinari. Tant si el projecte implica anàlisi qualitativa, mesuraments quantitatius, modelatge computacional com prototipatge físic, aquest capítol hauria d'elucidar com contribueix cada component als objectius generals.
+  
+  A més de descriure els mètodes en si mateixos, el capítol també proporcionarà justificacions per què es van escollir mètodes particulars enfront d'altres. Per exemple, podria explicar la tria d'un llenguatge de programació específic, prova estadística o configuració experimental. El capítol també abordarà les limitacions de la metodologia i com aquestes s'han mitigat o tingut en compte. Els lectors haurien de sortir amb una comprensió clara de com s'ha dut a terme el desenvolupament del projecte, per què s'han escollit determinades opcions i com aquests mètodes serveixen per complir els objectius establerts inicialment.
+  
+\else
+  \chapter{Methodology / Project Development}
+
+  %In this chapter, the methodology used in the completion of the work will be detailed. Its aim is to offer a thorough account of the approaches and techniques used, ensuring replicability and academic rigor. It will not only cover the research methods and measurement techniques employed but will also delve into the specifics of software and hardware development. Whether the project involves qualitative analysis, quantitative measurements, computational modeling, or physical prototyping, this chapter should elucidate how each component contributes to the overall objectives.
+  
+  %In addition to describing the methods themselves, the chapter will also provide justifications for why specific methods were chosen over others. For example, it may explain the choice of a particular programming language, statistical test, or experimental setup. The chapter will also address the limitations of the methodology and how these have been mitigated or accounted for. Readers should come away with a clear understanding of how the project's development has been carried out, why certain choices were made, and how these methods serve to fulfill the initially established objectives.
+  
+  This chapter describes the methodology employed to design, train and evaluate the knowledge distillation framework proposed in this study. It outlines the dataset, data preparation, teacher and student model architectures, training procedures, evaluation metrics and experimental setup. %Each section provides explanation of the methods, tools and reasoning behind key decisions.
+  
+  This research follows an experimental design where a teacher model is used to supervise the training of a smaller student model. A series of experiments evaluate the impact of different distillation strategies.
+
+\fi
+
+\ifcase\doclanguage\or
+  \section{Introducció d'expressions matemàtiques}
+    
+  \LaTeX{} és una eina inestimable per a la composició tipogràfica de contingut matemàtic. En aquesta secció mostrem les comandes i entorns \LaTeX{} essencials per a l'escriptura matemàtica. Per a més informació consulteu el capítol 3 de \cite{notsoshort}.
+    
+  \subsection{Matemàtiques en línia i aïllades}
+    
+  Per a expressions en línia, utilitzeu \verb|$ ... $| o \verb|\( ... \)|. Escriviu entre \verb|\[ ... \]| les expressions que s'han de mostrar en una línia apart.
+
+\else
+  \section{Data Preparation and Preprocessing}
+  
+  For the initial evaluations of the model, we conducted experiments to evaluate RestNet18 and MobileNetV2 performance using the public available CIFAR-10 and CIFAR-100 datasets. The CIFAR-10 and CIFAR-100 datasets are labeled subsets of the 80 million tiny images dataset. This dataset was chosen because it is an established computer vision dataset used for object recognition and it allows to quickly try different algorithms, ideal for benchmarking and preliminary evaluations.
+  
+  Data preparation is a crucial step that transforms the input data into the format required by the model, ensuring it can be correctly processed and learned from.
+  
+  The images are normalized to ensure consistency in the data format. Data normalization prevents large values from dominating the learning process by ensuring numerical features are on a similar scale for optimal model performance. It avoids numerical instability, speeds up convergence in gradient-based algorithms and ensures features contribute equally.
+  
+%  The dataset is divided in training, validation and test.
+%  These splits are NOT defined by the dataset
+  
+  \section{Model Training and Fine-Tuning}
+  
+  Training a model involves teaching it to identify patterns within data so that it can make accurate predictions or decisions when presented with new, unseen inputs. The training process is generally divided into two key stages: pre-training and fine-tuning.
+  
+  \begin{list}{-}{}
+  	\item Pre-training refers to training a model on a large, general-purpose dataset, often using unsupervised or self-supervised learning methods. During this stage, the model develops a foundational understanding of the data by learning to extract features and recognize broad patterns, without focusing on any specific task. The resulting pre-trained models serve as a strong starting point for various downstream applications, significantly reducing both time and computational cost compared to training a model entirely from scratch.
+  	\item Fine-tuning, on the other hand, builds upon a pre-trained model by adapting it to a specific task or dataset. This is done by further training the model on a smaller, labeled, and task-specific dataset. Through fine-tuning, the model refines its learned representations and becomes specialized in the target application while still benefiting from the general knowledge acquired during pre-training.
+  \end{list}
+  
+  In this work, the ResNet-18 model serves as the teacher network due to its strong performance on image classification tasks. We focus on fine-tuning the ResNet-18 model rather than training it from scratch. This approach is supported by the availability of high-quality pre-trained checkpoints in PyTorch, which have been trained on large-scale datasets. These pre-trained models already capture fundamental visual features and general data representations. However, their learned knowledge remains shallow and tied to the original training data. Fine-tuning enables the model to adapt and develop more task-specific capabilities. In our case, the teacher was pre-trained on ImageNet and fine-tuned on the target CIFAR dataset.
+  
+  By leveraging the visual representations obtained during pre-training, this method avoids the significant computational expense and environmental impact associated with large-scale model training. Consequently, it aligns with sustainable AI practices. In our implementation, we fine-tune the ResNet-18 model using labeled data to tailor it to the desired task.
+  
+  In the distillation process, the student model is a MobileNetV2, selected for its compact size and suitability for edge deployment. The student model is trained for 75 epochs using Adam optimizer with learning rate of 0.001. All hyperparameters are tuned based on the validation set. After several runs, the distillation temperature and alpha values chosen are T=4 and $\alpha=0.3$. It is trained under the supervision of the teacher, using both ground truth labels and soft targets learned from the larger model. %AJUSTAR NUM 
+  
+  Model performance is evaluated using top-1 accuracy, F1-score, and computational metrics such as inference latency.
+  
+  % During fine-tuning, the pre-trained model’s weights are frozen for the first NUM of updates. This value provides a good balance between stabilizing the learning process and enabling effective fine-tuning. Freezing the weights for too long may lead to overfitting, which ultimately reduces the model’s ability to generalize.
+  
+  To select the best checkpoint, we monitor validation accuracy and choose the checkpoint that achieves the highest score. This helps ensure that the model generalizes well to unseen data and avoids overfitting to the training set. Although fine-tuning continues for additional steps, this process ensures that training stops at an optimal point.
+  
+  \textbf{Experimental Setup}
+  	  
+  Fine-tuning of the MobileNet model is performed using a custom configuration that defines the parameters used in training, optimization, and overall model behavior. This setup ensures the model can adapt to the specific dataset used in our experiments. The configuration remains consistent across all trained models to maintain uniformity.
+  
+  Fixed random seed values of 42, 518, 1993 are used to ensure reproducibility, enabling consistent results across multiple runs.
+  
+  To maintain efficiency during training, only the highest-performing checkpoint is retained. Selection of the best checkpoint is based on the validation loss metric, ensuring that the stored model reflects peak performance for future evaluation.
+  
+  The model is pre-trained on the ImageNet dataset for image classification. Data pre-processing includes normalization to standardize inputs before they are fed into the model. %	Image augmentation is also applied, introducing random transformations to increase robustness to data variability.
+  
+  For optimization, we use the Adam optimizer, a widely adopted choice due to its adaptability to changing gradients during training. The model begins training with an initial learning rate of 0.001, chosen to provide stable updates without causing divergence.
+  
+  \section{Quantization}
+  
+  Model quantization converts high-precision floating-point values into lower-precision formats such as integers, resulting in faster inference, lower energy consumption, and reduced storage requirements. In particular, model parameters (weights and activations) are approximated using INT8 instead of the more common 32-bit floating-point format (FP32). This is especially beneficial in tasks such as image processing and neural network inference, where computational efficiency and memory optimization are crucial.
+  
+  \section{Benchmark}
+  
+  Evaluation is a fundamental component of any research project, as it provides a systematic and objective means of measuring the effectiveness and robustness of a proposed system. A well-designed evaluation framework allows researchers to compare models under consistent conditions, quantify performance using standardized metrics, and identify the strengths and limitations of different approaches.
+  
+  The quality of the evaluation process depends heavily on the datasets used. These datasets must be both trustworthy and sufficiently diverse to reflect real-world scenarios. Reliable benchmark data ensure that the results are reproducible and not influenced by noise or bias, while variation within the dataset allows for a more comprehensive assessment of the model’s ability to generalize beyond the specific examples seen during training.
+  
+  \section{Evaluation Framework and Testing}
+    
+  The evaluation framework used in this project is structured to assess the performance and reliability of the MobileNetV2 student model against the teacher. The framework enables consistent comparison of model behavior under different experimental parameters. This structure not only helps verify the model’s robustness but also ensures that its performance can be generalized beyond the specific conditions encountered during training.
+  
+  To conduct evaluation, the model is tested on a dataset that is isolated from the training process, therefore ensuring an unbiased assessment. The testing procedure examines the model’s ability to correctly classify inputs and handle variations in data distribution.
+   
+  Following the evaluation, accuracy is computed as the primary performance metric. Accuracy provides a clear measure of the proportion of correct predictions relative to the total number of samples, making it an appropriate and widely accepted indicator for classification tasks.
+  
+  %Limitations of Accuracy in Imbalanced Datasets
+  However, accuracy is often insufficient for evaluating models trained on imbalanced datasets, where one class substantially outweighs the others. In such cases, a model may achieve deceptively high accuracy simply by consistently predicting the majority class, while failing to detect the minority class altogether. This makes accuracy an unreliable indicator of true model performance.
+  To address these limitations, additional metrics such as precision, recall, and the F1 score are employed. These metrics provide more informative insights, particularly regarding the model’s ability to recognize minority classes and to manage trade-offs between false positives and false negatives.
+  
+  Precision measures the proportion of correctly predicted positive instances out of all instances predicted as positive. High precision indicates that the model’s positive predictions are reliable.  
+  
+  $Precision = \frac{True Positives}{True Positives + False Positives}$
+  ​
+  Recall, also known as sensitivity or the true positive rate, quantifies the proportion of actual positive instances that the model successfully identifies. Recall is crucial in scenarios where failing to detect positive cases, producing false negatives, is particularly costly.
+ 
+  $Recall = \frac{True Positives}{True Positives + False Negatives}/$
+  
+  Precision and recall frequently exhibit a trade-off. Improving one may reduce the other. Therefore, selecting the appropriate balance depends on the specific requirements and risks associated with the task.
+  
+  The F1 score provides a single metric that balances both precision and recall, making it particularly useful when false positives and false negatives are equally important. It is defined as the harmonic mean of precision and recall:
+  
+  $F1 Score = 2·\frac{Precision·Recall}{Precision+Recall}$
+  
+  The F1 score ranges from 0 to 1, with higher values indicating stronger overall performance. Achieving an F1 score of 1 would require perfect precision and recall simultaneously, which is a condition rarely met in practice due to the trade-offs between detecting all positive instances and minimizing incorrect positive predictions.
+
+\fi
