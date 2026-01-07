@@ -89,7 +89,7 @@
   
   The limitations of these isolated approaches naturally led to hybrid solutions such as QLoRA \cite{dettmers2023qloraefficientfinetuningquantized}, which combines 4-bit quantization and LoRA adapters, enabling the fine-tuning of large models on a single consumer GPU. This unified approach addresses memory issues in both base models and fine-tuning, shifting towards combined compression solutions.
   
-  Quantization reduces the precision of model weights and activations (e.g., from 32-bit floating-point to 8-bit integers), which reduces memory and speeds up inference time. Q
+  Quantization reduces the precision of model weights and activations (e.g., from 32-bit floating-point to 8-bit integers), which reduces memory and speeds up inference time.
   
   Post-training quantization (PTQ) applies quantization to a fully trained model without additional training. It typically relies on a small calibration dataset to estimate activation ranges and is widely used due to its simplicity and low computational cost. While PTQ can introduce accuracy degradation it is often sufficient for inference-only deployments where retraining is impractical.
   

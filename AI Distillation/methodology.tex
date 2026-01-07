@@ -99,17 +99,17 @@
   
   Precision measures the proportion of correctly predicted positive instances out of all instances predicted as positive. High precision indicates that the model’s positive predictions are reliable.  
   
-  $Precision = \frac{True Positives}{True Positives + False Positives}$
-  ​
+  \[Precision = \frac{True Positives}{True Positives + False Positives}\]
+  
   Recall, also known as sensitivity or the true positive rate, quantifies the proportion of actual positive instances that the model successfully identifies. Recall is crucial in scenarios where failing to detect positive cases, producing false negatives, is particularly costly.
  
-  $Recall = \frac{True Positives}{True Positives + False Negatives}/$
+  \[Recall = \frac{True Positives}{True Positives + False Negatives}\]
   
   Precision and recall frequently exhibit a trade-off. Improving one may reduce the other. Therefore, selecting the appropriate balance depends on the specific requirements and risks associated with the task.
   
   The F1 score provides a single metric that balances both precision and recall, making it particularly useful when false positives and false negatives are equally important. It is defined as the harmonic mean of precision and recall:
   
-  $F1 Score = 2·\frac{Precision·Recall}{Precision+Recall}$
+  \[F1 Score = 2·\frac{Precision·Recall}{Precision+Recall}\]
   
   The F1 score ranges from 0 to 1, with higher values indicating stronger overall performance. Achieving an F1 score of 1 would require perfect precision and recall simultaneously, which is a condition rarely met in practice due to the trade-offs between detecting all positive instances and minimizing incorrect positive predictions.
 
