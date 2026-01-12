@@ -63,18 +63,6 @@
   
   To select the best checkpoint, we monitor validation accuracy and choose the checkpoint that achieves the highest score. This helps ensure that the model generalizes well to unseen data and avoids overfitting to the training set. Although fine-tuning continues for additional steps, this process ensures that training stops at an optimal point.
   
-  \textbf{Experimental Setup}
-  	  
-  Fine-tuning of the MobileNet model is performed using a custom configuration that defines the parameters used in training, optimization, and overall model behavior. This setup ensures the model can adapt to the specific dataset used in our experiments. The configuration remains consistent across all trained models to maintain uniformity.
-  
-  Fixed random seed values of 42, 518, 1993 are used to ensure reproducibility, enabling consistent results across multiple runs.
-  
-  To maintain efficiency during training, only the highest-performing checkpoint is retained. Selection of the best checkpoint is based on the validation loss metric, ensuring that the stored model reflects peak performance for future evaluation.
-  
-  The model is pre-trained on the ImageNet dataset for image classification. Data pre-processing includes normalization to standardize inputs before they are fed into the model. %	Image augmentation is also applied, introducing random transformations to increase robustness to data variability.
-  
-  For optimization, we use the Adam optimizer, a widely adopted choice due to its adaptability to changing gradients during training. The model begins training with an initial learning rate of 0.001, chosen to provide stable updates without causing divergence.
-  
   \section{Quantization}
   
   Model quantization converts high-precision floating-point values into lower-precision formats such as integers, resulting in faster inference, lower energy consumption, and reduced storage requirements. In particular, model parameters (weights and activations) are approximated using INT8 instead of the more common 32-bit floating-point format (FP32). This is especially beneficial in tasks such as image processing and neural network inference, where computational efficiency and memory optimization are crucial.
@@ -99,11 +87,11 @@
   
   Precision measures the proportion of correctly predicted positive instances out of all instances predicted as positive. High precision indicates that the model’s positive predictions are reliable.  
   
-  \[Precision = \frac{True Positives}{True Positives + False Positives}\]
+  %\[Precision = \frac{True Positives}{True Positives + False Positives}\]
   
   Recall, also known as sensitivity or the true positive rate, quantifies the proportion of actual positive instances that the model successfully identifies. Recall is crucial in scenarios where failing to detect positive cases, producing false negatives, is particularly costly.
  
-  \[Recall = \frac{True Positives}{True Positives + False Negatives}\]
+  %\[Recall = \frac{True Positives}{True Positives + False Negatives}\]
   
   Precision and recall frequently exhibit a trade-off. Improving one may reduce the other. Therefore, selecting the appropriate balance depends on the specific requirements and risks associated with the task.
   

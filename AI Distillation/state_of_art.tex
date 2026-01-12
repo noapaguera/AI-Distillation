@@ -47,7 +47,6 @@
   Hinton, Vinyals, \& Dean focused exclusively on the concept of transferring "dark knowledge" from a teacher to a student model, establishing the theoretical groundwork for response-based distillation \cite{hinton2015distillingknowledgeneuralnetwork}. Although their work showed that a student model could learn a richer structure by training on the teacher's outputs, they didn't address the efficiency of adapting the distilled model to new tasks.
   
   Knowledge Distillation is a machine learning technique that aims to transfer the learnings of a large pre-trained model to a smaller and more compact one so that the “student” mimics the behaviour of the “teacher” \cite{hinton2015distillingknowledgeneuralnetwork} by matching its predictions. It is usually applied to deep neural networks with many layers and learnable parameters. The main idea is to use soft probabilities of the larger network to supervise the smaller one, which reveal more information than the class labels alone. Soft targets can be estimated by a softmax function as:
-  
   % Softened softmax with temperature
   \[
   q_i = 

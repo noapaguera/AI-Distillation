@@ -14,15 +14,49 @@
   
 \else
   \chapter{Results}
-  This chapter outlines the experimental setup used to train and evaluate the model. 
   
     \section{Experiments and Tests}
-    Describe the experiments conducted to assess the performance of your project. Explain how you collected and processed the data.
+    
+    % Describe the experiments conducted to assess the performance of your project. Explain how you collected and processed the data.
+    
+    This chapter provides an overview of the experimental setup used for training and evaluating the model. It specifically addresses the configurations implemented to achieve the results discussed. For further methodological details or prerequisites, please refer to Chapter 3. 
+	In this section, the parameters employed for fine-tuning are defined.
+	  
+	  \textbf{Fine-tuning Configuration}
+	  
+	  Fine-tuning of the MobileNet model is performed using a custom configuration that defines the parameters used in training, optimization, and overall model behavior. This setup ensures the model can adapt to the specific dataset used in our experiments. The configuration remains consistent across all trained models to maintain uniformity.
+	  
+	  The model uses a 32-bit precision format (FP32), a storage format for floating-point values suitable for applications where higher precision is not critical. This is particularly advantageous in scenarios like image processing and neural network training, where computational efficiency and memory optimization are crucial.
+	  
+	  Fixed random seed values of 42, 518, 1993 are used to ensure reproducibility, enabling consistent results across multiple runs.
+	  
+	  To maintain efficiency during training, only the highest-performing checkpoint is retained. Selection of the best checkpoint is based on the validation loss metric, ensuring that the stored model reflects peak performance for future evaluation.
+	  
+	  The model is pre-trained on the ImageNet dataset for image classification. Data pre-processing includes normalization to standardize inputs before they are fed into the model. %	Image augmentation is also applied, introducing random transformations to increase robustness to data variability.
+	  
+	  For optimization, we use the Adam optimizer, a widely adopted choice due to its adaptability to changing gradients during training. The model begins training with an initial learning rate of 0.001, chosen to provide stable updates without causing divergence.
+	   
+	  % quantization works well but performance suffers from accuracy loss during inference
+	  
+	  % doing calculation in int8 offers some advantages
+	  % faster arithmetic, lower memory demands reduced by 75%, reduced resource requirements. 
+	  
+	  Knowledge Distillation Results
+	  
+	  The implementation of the knowledge distillation phase aimed to transfer the predictions of the ResNet18 to the more compact MobileNetV2. Initial results indicate that the student model achieved an accuracy of 62\%, successfully recovering 76\% of the teacher's performance. This suggests that the soft targets provided by the teacher were effective in regularizing the student's training, despite the significant reduction in total parameter count.
+	  
+	  LoRA \& Quantization Trade-offs
+	  
+	  To further optimize the model for deployment, LoRA fine-tuning was applied with 8-bit quantization. While quantization typically introduces a quantization error that degrades performance, the LoRA adapters effectively compensated for this loss. The final quantized model reached a compressed size of 79\% compared to the baseline, with an accuracy degradation of only 12\%.
+	  
+	  The proposed pipeline demonstrates that the integration of distillation, low-rank adaptation, and quantization provides a robust framework for model compression. The findings confirm that it is possible to achieve a reduction in memory usage while maintaining competitive accuracy levels. This makes the resulting model suitable for resource-constrained environments where the original baseline would be computationally infeasible.
+	  
+	  %\textbf{Evaluation Framework}
     
     \section{Data Visualization}
     Create visual representations of the results (e.g., scatter plots, bar charts). Interpret the visualizations and relate them to the research questions.
     
-    \section{Limitations}
+    \section{Discussion}
     Acknowledge any limitations in the data or analysis. Explain how these limitations may have influenced the results.
 
 \fi
@@ -49,7 +83,7 @@
 %%%% SECTION5 %%%
 %\newpage
 %%\vspace*{2cm}
-%\section{Section 5}
+%\section{Section 5}´
 %\label{sec:sect5}
 %\lipsum[4]
 %
