@@ -17,8 +17,6 @@
   
     \section{Experiments and Tests}
     
-    % Describe the experiments conducted to assess the performance of your project. Explain how you collected and processed the data.
-    
     This chapter provides an overview of the experimental setup used for training and evaluating the model. It specifically addresses the configurations implemented to achieve the results discussed. For further methodological details or prerequisites, please refer to Chapter 3. 
 	In this section, the parameters employed for fine-tuning are defined.
 	  
@@ -32,32 +30,37 @@
 	  
 	  To maintain efficiency during training, only the highest-performing checkpoint is retained. Selection of the best checkpoint is based on the validation loss metric, ensuring that the stored model reflects peak performance for future evaluation.
 	  
-	  The model is pre-trained on the ImageNet dataset for image classification. Data pre-processing includes normalization to standardize inputs before they are fed into the model. %	Image augmentation is also applied, introducing random transformations to increase robustness to data variability.
+	  The model is pre-trained on the ImageNet dataset for image classification. Data pre-processing includes normalization to standardize inputs before they are fed into the model. Image augmentation is also applied, introducing random transformations to increase robustness to data variability.
 	  
-	  For optimization, we use the Adam optimizer, a widely adopted choice due to its adaptability to changing gradients during training. The model begins training with an initial learning rate of 0.001, chosen to provide stable updates without causing divergence.
-	   
-	  % quantization works well but performance suffers from accuracy loss during inference
-	  
-	  % doing calculation in int8 offers some advantages
-	  % faster arithmetic, lower memory demands reduced by 75%, reduced resource requirements. 
-	  
-	  Knowledge Distillation Results
-	  
-	  The implementation of the knowledge distillation phase aimed to transfer the predictions of the ResNet18 to the more compact MobileNetV2. Initial results indicate that the student model achieved an accuracy of 62\%, successfully recovering 76\% of the teacher's performance. This suggests that the soft targets provided by the teacher were effective in regularizing the student's training, despite the significant reduction in total parameter count.
-	  
-	  LoRA \& Quantization Trade-offs
-	  
-	  To further optimize the model for deployment, LoRA fine-tuning was applied with 8-bit quantization. While quantization typically introduces a quantization error that degrades performance, the LoRA adapters effectively compensated for this loss. The final quantized model reached a compressed size of 79\% compared to the baseline, with an accuracy degradation of only 12\%.
-	  
-	  The proposed pipeline demonstrates that the integration of distillation, low-rank adaptation, and quantization provides a robust framework for model compression. The findings confirm that it is possible to achieve a reduction in memory usage while maintaining competitive accuracy levels. This makes the resulting model suitable for resource-constrained environments where the original baseline would be computationally infeasible.
-	  
-	  %\textbf{Evaluation Framework}
-    
+	  For optimization, we use the Adam optimizer, a widely adopted choice due to its adaptability to changing gradients during training. The model begins training with an initial learning rate of 0.001, chosen to provide stable updates without causing divergence.	% quantization works well but performance suffers from accuracy loss during inference % doing calculation in int8 offers some advantages % faster arithmetic, lower memory demands reduced by 75%, reduced resource requirements.	  
+	      
     \section{Data Visualization}
-    Create visual representations of the results (e.g., scatter plots, bar charts). Interpret the visualizations and relate them to the research questions.
+    
+    Figure [X] illustrates the baseline accuracy of the student model. These results serve as a primary benchmark for comparison against the distilled model, which is trained using the soft outputs of the teacher model.
+
+    \includegraphics{img/student_baseline_v1.png}
+    
+    \textbf{Knowledge Distillation Results}
+    
+    The implementation of the knowledge distillation phase aimed to transfer the predictions of the ResNet18 to the more compact MobileNetV2. Initial results indicate that the student model achieved an accuracy of 62\%, successfully recovering 76\% of the teacher's performance. This suggests that the soft targets provided by the teacher were effective in regularizing the student's training, despite the significant reduction in total parameter count.
+    
+    \includegraphics{img/KD_v1.png}
+       
+    \textbf{LoRA \& Quantization Trade-offs}
+    
+    To further optimize the model for deployment, LoRA fine-tuning was applied with 8-bit quantization. While quantization typically introduces a quantization error that degrades performance, the LoRA adapters effectively compensated for this loss. The final quantized model reached a compressed size of 79\% compared to the baseline, with an accuracy degradation of only 12\%.
+       
+   	[plot]
     
     \section{Discussion}
-    Acknowledge any limitations in the data or analysis. Explain how these limitations may have influenced the results.
+    
+    In summary, this research successfully established a pipeline for model compression. However, several limitations must be acknowledged. First, the reliance on a fixed, balanced dataset, while providing a controlled environment for initial testing, may mask the model's performance in real-world, imbalanced scenarios.
+    
+    Secondly, the observed inconsistencies in the LoRA fine-tuning phase suggest a sensitivity to hyperparameter settings that was not fully captured within the current training volume. The inclusion of synthetic data generation could address these variances in future iterations.
+    
+    Despite these constraints, the results demonstrate that the proposed pipeline achieves >75\% student model accuracy, providing a viable framework for further optimization in image classification.
+    
+    [Final summary table comparing models' accuracy, size, latency]
 
 \fi
 

@@ -14,7 +14,7 @@
 \section{Motivation}
 \fi
 
-This project aims to enhance the efficiency and usability of large AI models, specifically deep learning models used in Computer Vision (CV), when deployed on edge devices with limited resources. The aim is to reduce the computational demands of these models without sacrificing performance by developing a modular pipeline that integrates knowledge distillation, LoRA fine-tuning, and quantization techniques. The project systematically quantifies the trade-offs between model performance (accuracy) and efficiency (size, latency, computational cost) at each stage of the pipeline, applying information-theoretic principles for efficient knowledge transfer and exploring its applicability within a federated edge learning context.
+This project aims to enhance the efficiency and usability of large AI models, specifically deep learning models used in Computer Vision (CV), when deployed on edge devices with limited resources. The aim is to reduce the computational demands of these models without sacrificing performance by developing a modular pipeline that integrates knowledge distillation, LoRA fine-tuning, and quantization techniques. The project systematically quantifies the trade-offs between model performance (accuracy) and efficiency (size, latency, computational cost) at each stage of the pipeline. %applying information-theoretic principles for efficient knowledge transfer and exploring its applicability within a federated edge learning context.
 
 This will be achieved by integrating three core methodologies to shrink a large AI model (ResNet-18) into a compact, efficient version (MobileNetV2):
 
@@ -30,7 +30,7 @@ The project empirically validates this pipeline, providing a clear methodology f
 \or
   \section{Objectius del treball}
 \else
-  \section{Work goals}
+  \section{Work Goals}
 \fi
 
 The purpose of this project is to address the deployment of large, powerful AI models on resource-constrained edge devices (e.g., smartphones and IoT sensors) by designing, implementing, and evaluating a modular, three-stage pipeline. This pipeline systematically combines knowledge distillation, Low-Rank Adaptation (LoRA), and quantization to create a lightweight yet functional version of a standard computer vision model.
@@ -56,14 +56,14 @@ To achieve the main goal of developing and evaluating a compressed student model
 		\item Study Fine-Tuning Dynamics: Investigate how the initial distillation phase impacts the efficiency and effectiveness of subsequent LoRA-based fine-tuning, identifying the most critical elements of the original large AI model knowledge for downstream performance.
 	\end{enumerate}
 	The evaluation will be done in parallel with knowledge distillation and fine-tuning. 
-	\item Frame the distillation process within an information-theoretic context: Analyze knowledge transfer within an information-theoretic context, and explore extending the above pipeline to a Federated Learning setting for decentralized, privacy-preserving training.
+	% \item Frame the distillation process within an information-theoretic context: Analyze knowledge transfer within an information-theoretic context, and explore extending the above pipeline to a Federated Learning setting for decentralized, privacy-preserving training.
 \end{enumerate}
 
 \ifcase\doclanguage
 \or
   \section{Requisits i especificacions}
 \else
-  \section{Requirements and specifications}
+  \section{Requirements and Specifications}
 \fi
 
 A set of requirements has been defined to ensure that the developed system meets the objectives, covering key points such as the model’s capabilities and its evaluation.
@@ -115,7 +115,7 @@ The selection of teacher and student models is designed to create a realistic an
 \or
   \section{Mètodes i procediments}
 \else
-  \section{Methods and procedures}
+  \section{Methods and Procedures}
 \fi
 
 The project builds upon existing state-of-the-art technologies, architectures and methods developed by other authors:
@@ -133,7 +133,7 @@ The project is conducted independently and does not form part of any department 
 \or
   \section{Pla de treball}
 \else
-  \section{Work plan}
+  \section{Work Plan}
 \fi
 \label{sec:workplan}
 
@@ -150,7 +150,7 @@ The project is conducted independently and does not form part of any department 
   
   Theoretical Analysis, Final Report, and Submission. This final phase is dedicated to the theoretical framing of the project, in-depth analysis of the results, and writing the thesis document.
    
-  Work Packages
+  \textbf{Work Packages}
   
   \begin{itemize}
   	\item WP1: Distillation-LoRA Framework \& Evaluation
@@ -172,7 +172,7 @@ The project is conducted independently and does not form part of any department 
   		\begin{itemize}
   			\item T2.1: Apply post-training INT8 quantization to the LoRA-tuned model.
   			\item T2.2: Design and execute a final, comprehensive benchmarking script to evaluate all model versions on accuracy, size, latency, and FLOPs.
-  			\item T2.3: Generate all tables and visualizations for the results chapter.
+  			\item T2.3: Generate tables and visualizations for the results chapter.
   			%\item T2.4: Analyze knowledge transfer from an information-theoretic perspective.
   			%\item T2.5: Define and describe how the pipeline can be extended for Federated Edge Learning.
   		\end{itemize}
@@ -194,7 +194,10 @@ The project is conducted independently and does not form part of any department 
   		\end{itemize}
   	\end{itemize} 	
   \end{itemize}
-  %Below is the Gantt diagram with the timeline of the project.
+  Below is the Gantt diagram with the timeline of the project.
+  
+  [insert diagram]
+  
   %Normally the figures and tables are put in \verb|\figure| and \verb|\table| environments, that can float freely in the document. You can identify each float with a \verb|\label|
 \fi
 

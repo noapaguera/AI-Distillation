@@ -1,5 +1,3 @@
-%%%% PLEASE REPLACE ENTIRELY WITH YOUR OWN CONTENT %%%%
-
 \ifcase\doclanguage\or
 \chapter{Conclusions i Línies Futures}
   \section{Conclusions}
@@ -16,36 +14,15 @@
       \item Considereu les preguntes que han quedat sense resposta i les oportunitats per a futures exploracions.
     \end{itemize}
 
-\or
-\chapter{Conclusiones y Líneas Futuras}
-  \section{Conclusiones}
-    \begin{itemize}
-      \item Resuman los resultados principales de su trabajo.
-      \item Discutan el grado de logro en relación con los objetivos establecidos al inicio del trabajo.
-      \item Destaquen las contribuciones de su trabajo al campo de estudio.
-    \end{itemize}
-  
-  \section{Líneas Futuras}
-    \begin{itemize}
-      \item Identifiquen áreas para futuras investigaciones o desarrollo basadas en su trabajo.
-      \item Discutan posibles formas de ampliar o mejorar el proyecto.
-      \item Consideren las preguntas que han quedado sin respuesta y las oportunidades para futuras exploraciones.
-    \end{itemize}
-
 \else
 \chapter{Conclusions and Future Work}
-  \section{Conclusions}
-    \begin{itemize}
-      \item Summarize the main results of your work.
-      \item Discuss the degree of achievement in relation to the objectives set at the beginning of the work.
-      \item Highlight the contributions of your work to the field of study.
-    \end{itemize}
-  
-  \section{Future Directions}
-    \begin{itemize}
-      \item Identify areas for future research or development based on your work.
-      \item Discuss possible ways to expand or improve the project.
-      \item Consider questions that remained unanswered and opportunities for future exploration.
-    \end{itemize}
+
+    The proposed pipeline demonstrates that the integration of distillation, low-rank adaptation, and quantization provides a robust framework for model compression. The findings confirm that it is possible to achieve a reduction in memory usage compared to the teacher model while maintaining competitive accuracy levels. This makes the resulting model suitable for resource-constrained environments where the original baseline would be computationally infeasible.
+    
+    Currently, the compression stages were executed with fixed parameters: a specific rank r for LoRA and a specific bit-width for quantization. Future research could investigate how to automatically find the optimal balance between distillation temperature and quantization thresholds.
+    
+    A further line of research is to frame the distillation process within an information-theoretic context and explore extending the pipeline to a Federated Learning setting for decentralized, privacy-preserving training.
+    
+    While this thesis focused on theoretical model size and accuracy, the pipeline could be extended by testing performance on diverse edge devices such as Raspberry Pi or mobile CPUs. This would provide empirical data on "Inference latency vs. power consumption" that goes beyond static model size.
 
 \fi

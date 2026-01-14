@@ -10,15 +10,10 @@
   
 \else
   \chapter{Methodology / Project Development}
-
-  %In this chapter, the methodology used in the completion of the work will be detailed. Its aim is to offer a thorough account of the approaches and techniques used, ensuring replicability and academic rigor. It will not only cover the research methods and measurement techniques employed but will also delve into the specifics of software and hardware development. Whether the project involves qualitative analysis, quantitative measurements, computational modeling, or physical prototyping, this chapter should elucidate how each component contributes to the overall objectives.
-  
-  %In addition to describing the methods themselves, the chapter will also provide justifications for why specific methods were chosen over others. For example, it may explain the choice of a particular programming language, statistical test, or experimental setup. The chapter will also address the limitations of the methodology and how these have been mitigated or accounted for. Readers should come away with a clear understanding of how the project's development has been carried out, why certain choices were made, and how these methods serve to fulfill the initially established objectives.
   
   This chapter describes the methodology employed to design, train and evaluate the knowledge distillation framework proposed in this study. It outlines the dataset, data preparation, teacher and student model architectures, training procedures, evaluation metrics and experimental setup. %Each section provides explanation of the methods, tools and reasoning behind key decisions.
   
   This research follows an experimental design where a teacher model is used to supervise the training of a smaller student model. A series of experiments evaluate the impact of different distillation strategies.
-
 \fi
 
 \ifcase\doclanguage\or
@@ -33,13 +28,13 @@
 \else
   \section{Data Preparation and Preprocessing}
   
-  For the initial evaluations of the model, we conducted experiments to evaluate RestNet18 and MobileNetV2 performance using the public available CIFAR-10 and CIFAR-100 datasets. The CIFAR-10 and CIFAR-100 datasets are labeled subsets of the 80 million tiny images dataset. This dataset was chosen because it is an established computer vision dataset used for object recognition and it allows to quickly try different algorithms, ideal for benchmarking and preliminary evaluations.
+  For the initial evaluations of the model, we conducted experiments to evaluate RestNet18 and MobileNetV2 performance using the public available CIFAR-10 and CIFAR-100 datasets. The CIFAR-10 and CIFAR-100 datasets are labeled subsets of the 80 million tiny images dataset. This dataset was chosen because it is an established Computer Vision dataset used for object recognition and it allows to quickly try different algorithms, ideal for benchmarking and preliminary evaluations.
   
   Data preparation is a crucial step that transforms the input data into the format required by the model, ensuring it can be correctly processed and learned from.
   
   The images are normalized to ensure consistency in the data format. Data normalization prevents large values from dominating the learning process by ensuring numerical features are on a similar scale for optimal model performance. It avoids numerical instability, speeds up convergence in gradient-based algorithms and ensures features contribute equally.
   
-%  The dataset is divided in training, validation and test.
+  The dataset is divided in training, validation and test. 
 %  These splits are NOT defined by the dataset
   
   \section{Model Training and Fine-Tuning}
@@ -55,7 +50,7 @@
   
   By leveraging the visual representations obtained during pre-training, this method avoids the significant computational expense and environmental impact associated with large-scale model training. Consequently, it aligns with sustainable AI practices. In our implementation, we fine-tune the ResNet-18 model using labeled data to tailor it to the desired task.
   
-  In the distillation process, the student model is a MobileNetV2, selected for its compact size and suitability for edge deployment. The student model is trained for 75 epochs using Adam optimizer with learning rate of 0.001. All hyperparameters are tuned based on the validation set. After several runs, the distillation temperature and alpha values chosen are T=4 and $\alpha=0.3$. It is trained under the supervision of the teacher, using both ground truth labels and soft targets learned from the larger model. %AJUSTAR NUM 
+  In the distillation process, the student model is a MobileNetV2, selected for its compact size and suitability for edge deployment. The student model is trained for 50 epochs using Adam optimizer with learning rate of 0.001. All hyperparameters are tuned based on the validation set. After several runs, the distillation temperature and alpha values chosen are T=4 and $\alpha=0.3$. It is trained under the supervision of the teacher, using both ground truth labels and soft targets learned from the larger model. %TODO AJUSTAR NUM
   
   Model performance is evaluated using top-1 accuracy, F1-score, and computational metrics such as inference latency.
   
@@ -63,15 +58,42 @@
   
   To select the best checkpoint, we monitor validation accuracy and choose the checkpoint that achieves the highest score. This helps ensure that the model generalizes well to unseen data and avoids overfitting to the training set. Although fine-tuning continues for additional steps, this process ensures that training stops at an optimal point.
   
+  %TODO: if lora underperforms: adapt more parameters and increase the rank
+  % what happens during inference is that since lora updates are additive to the original parameters, we can expand the low rank matrices by multiplying the low rank bottleneck and add the updates to the original parameters
+  %when we need to switch tasks we simply repeat the process but this time we subtract the updates. we can recover the original parameters and repeat to load another lora module. faster than a single forward pass
+  %lora modules are additive
+  
+  %improve convergence. adjust networks parameters iteratively to minimize the loss function
+  %learning rate optimization. if to high, might overshoot the minimum. if too low, slow convergence. learning rate schedules or adaptive learning rate methods like Adam, RMSprop, or AdaGrad can dynamically adjust the learning rate during training
+  %weight initialization. can help avoid issues such as vanishing or exploding gradients
+  %batch normalization. improve convergence by normalizing inputs for each mini batch
+  %regularization techniques. can prevent overfitting.
+  %advanced optimizers.  like Adam. faster and more reliable convergence
+  %data preprocessing. scaling features to similar range
+  %network architecture. Overly complex networks may overfit, too simplistic ones may underfit. 
+  
+  
   \section{Quantization}
   
   Model quantization converts high-precision floating-point values into lower-precision formats such as integers, resulting in faster inference, lower energy consumption, and reduced storage requirements. In particular, model parameters (weights and activations) are approximated using INT8 instead of the more common 32-bit floating-point format (FP32). This is especially beneficial in tasks such as image processing and neural network inference, where computational efficiency and memory optimization are crucial.
+ 
+  The primary objective was to reduce the computational complexity and memory footprint of the MobileNetV2 model. Post-Training Quantization (PTQ), specifically dynamic quantization, is selected as the primary optimization strategy. This approach was chosen because it allows for reductions in model size without requiring the intensive retraining cycles associated with Quantization-Aware Training (QAT).
+  
+  Linear quantization is applied to the model weights. The mapping from the floating-point tensors to the quantized integer tensors is governed by the affine transformation:
+  \[ q=round(⌊r/S​)⌋+Z\]
+  where S is the scale and Z the zero-point, adjusted to ensure that the floating-point value of 0 is exactly represented in the integer space.
+ 
+  The quantization process was executed using the PyTorch torch.quantization backend. The workflow followed a three-step pipeline of model preparation, layer-specific targeting and dynamic conversion. The pre-trained model was loaded and set to evaluation mode (.eval()). The nn.Linear modules were targeted (Fully Connected layers), which account for the vast majority of the model's parameters and memory consumption. Using quantize\_dynamic, weights were converted to 8-bit integers (qint8). Activations were kept in floating-point format while at rest and quantized dynamically during the forward pass to minimize the precision loss typically seen in static quantization.
+  
+  To validate the effectiveness of the quantization, the model size is measured in Megabytes (MB) on disk and inference latency is measured in milliseconds (ms).
   
   \section{Benchmark}
   
   Evaluation is a fundamental component of any research project, as it provides a systematic and objective means of measuring the effectiveness and robustness of a proposed system. A well-designed evaluation framework allows researchers to compare models under consistent conditions, quantify performance using standardized metrics, and identify the strengths and limitations of different approaches.
   
   The quality of the evaluation process depends heavily on the datasets used. These datasets must be both trustworthy and sufficiently diverse to reflect real-world scenarios. Reliable benchmark data ensure that the results are reproducible and not influenced by noise or bias, while variation within the dataset allows for a more comprehensive assessment of the model’s ability to generalize beyond the specific examples seen during training.
+  
+  % TODO rewrite.inference is the process of running live data points into a machine learning algorithm (or “ML model”) to calculate an output such as a single numerical score
   
   \section{Evaluation Framework and Testing}
     
@@ -83,15 +105,37 @@
   
   %Limitations of Accuracy in Imbalanced Datasets
   However, accuracy is often insufficient for evaluating models trained on imbalanced datasets, where one class substantially outweighs the others. In such cases, a model may achieve deceptively high accuracy simply by consistently predicting the majority class, while failing to detect the minority class altogether. This makes accuracy an unreliable indicator of true model performance.
+  
   To address these limitations, additional metrics such as precision, recall, and the F1 score are employed. These metrics provide more informative insights, particularly regarding the model’s ability to recognize minority classes and to manage trade-offs between false positives and false negatives.
+  
+  A confusion matrix is a fundamental diagnostic tool used to evaluate the performance of a classification model. It provides a structured layout of the counts of true versus predicted values.
+  
+  For binary classification tasks, the matrix is organized into four distinct quadrants: True Positive (TP), where the model correctly predicts the right class; True Negative (TN), where the model correctly predicts the negative class; False Positive (FP), where the model incorrectly predicts a positive outcome; and False Negative (FN), where the model incorrectly predicts a negative outcome.
+  
+  \begin{table}[h]
+  	\centering
+  	\begin{tabular}{llcc}
+  		\cmidrule{3-4}
+  		& & \multicolumn{2}{c}{\textbf{Ground truth}} \\ \cmidrule{3-4} 
+  		& & Positive & Negative \\ \midrule
+  		\multirow{2}{*}{\textbf{Predicted}} & Positive & TP & FP \\
+  		& Negative & FN & TN \\ \bottomrule
+  	\end{tabular}
+  	\caption{Confusion matrix for binary classification}
+  	\label{table:confusion_matrix_binary}
+  \end{table}
+	
+  While the matrix itself provides raw counts, the overall performance is often summarized via Accuracy. This metric represents the ratio of correct predictions to the total number of observations. It is expressed on a scale from 0 to 1, where a value of 1 represents a perfect classification. In practice, a robust model is characterized by high values along the diagonal (TP and TN) and minimal values elsewhere.
+  
+  \[Accuracy = \frac{TP + TN}{TP + FP + TN + FN}\]
   
   Precision measures the proportion of correctly predicted positive instances out of all instances predicted as positive. High precision indicates that the model’s positive predictions are reliable.  
   
-  %\[Precision = \frac{True Positives}{True Positives + False Positives}\]
+  \[Precision = \frac{TP}{TP + FP}\]
   
   Recall, also known as sensitivity or the true positive rate, quantifies the proportion of actual positive instances that the model successfully identifies. Recall is crucial in scenarios where failing to detect positive cases, producing false negatives, is particularly costly.
  
-  %\[Recall = \frac{True Positives}{True Positives + False Negatives}\]
+  \[Recall = \frac{TP}{TP + FN}\]
   
   Precision and recall frequently exhibit a trade-off. Improving one may reduce the other. Therefore, selecting the appropriate balance depends on the specific requirements and risks associated with the task.
   
