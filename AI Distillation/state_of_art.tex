@@ -12,27 +12,27 @@
 %  Aquí teniu un parell de cites a referències sobre \LaTeX~\cite{latexcompanion} i electrodinàmica \cite{einstein}.
 
 %\else
-  \chapter[State of the art]{State of the Art of the technology applied in this thesis}
+  \chapter[State of the art]{State of the Art of the Technology Applied in this Thesis}
 
   % The "Technology State of the Art" chapter offers a detailed view of the current advancements related to the topic of your work. It should describe key theories, models, algorithms, or developments in software and hardware, supported by peer-reviewed articles and other resources such as books, patents, technical reports, etc. This chapter sets the context and helps readers understand the existing landscape in the field. Consequently, the \textbf{citations to relevant bibliographic references} are an important part of the content.
   
   % This chapter should not only summarize existing research but also provide a critical evaluation of it. This involves highlighting the gaps or limitations in current technology to set the stage for the tasks that the bachelor's thesis will address. By the end of the chapter, readers should have a clear understanding of what is already known about the topic, what still needs to be learned, and how the bachelor's thesis contributes to this ongoing "academic conversation."
 
-  In order to achieve better performance, current deep learning models generally are deeper and wider. However, these heavy models are hard to deploy on resource-constrained devices in practice due to computational and memory resource limitations. We aim to develop an AI model that is smaller, faster, and more energy-efficient while maintaining its intelligence. In the following sections, we follow the development of deep learning, making a survey and integrating three core methodologies to shrink a large AI model (ResNet-18) \cite{he2015deepresiduallearningimage} into a compact, efficient version (MobileNetV2) \cite{sandler2019mobilenetv2invertedresidualslinear}: Knowledge Distillation \cite{hinton2015distillingknowledgeneuralnetwork}, LoRA Fine-Tuning \cite{hu2021loralowrankadaptationlarge} and Quantization.
+  In order to achieve better performance, current deep learning models generally are becoming deeper and wider. However, these heavy models are hard to deploy on resource-constrained devices in practice due to computational and memory resource limitations. We aim to develop an AI model that is smaller, faster, and more energy-efficient while maintaining its prediction capability. In the following sections, we follow the development of deep learning, making a survey and integrating three core methodologies to shrink a large AI model (ResNet-18) \cite{he2015deepresiduallearningimage} into a compact, efficient version (MobileNetV2) \cite{sandler2019mobilenetv2invertedresidualslinear}: Knowledge Distillation \cite{hinton2015distillingknowledgeneuralnetwork}, LoRA Fine-Tuning \cite{hu2021loralowrankadaptationlarge} and Quantization.
   
-  This project empirically validates this pipeline, providing a clear methodology for developing lightweight, task-specialized AI suitable for edge computing applications. The methodology is grounded in information theory to maximize knowledge transfer and is designed with Federated Edge Learning (FEL) \cite{wu2024knowledgedistillationfederatededge} in mind, enabling collaborative training without centralizing user data.
+  This project empirically validates this pipeline, providing a clear methodology for developing lightweight, task-specialized AI suitable for edge computing applications. The methodology is grounded in information theory to maximize knowledge transfer. % and is designed with Federated Edge Learning (FEL) \cite{wu2024knowledgedistillationfederatededge} in mind, enabling collaborative training without centralizing user data.
 
   \section{Deep Learning}
 
-  Deep learning is a subset of machine learning that utilizes multilayered neural networks to simulate decision-making of the human brain to perform tasks such as classification, regression and feature learning. Deep neural networks consist of multiple layers of interconnected nodes, a combination of data inputs, weights and bias, which can be expressed as $W^T·X+b$.
+  Deep learning is a subset of machine learning that utilizes multilayered neural networks to simulate decision-making of the human brain to perform tasks such as classification, regression and feature learning. Deep neural networks consist of multiple layers of interconnected nodes, a combination of data inputs, weights and bias, which can be expressed as $W^T·X+b$ in linear regression, where W is the weight matrix, X is the input, and b is the bias.  %this is the model for only a class of problems. Name that class. Say which one is the weight, bias, and input
   
-  Over the past decade, deep learning has revolutionized computer vision. Architectures such as ResNet have set new records in benchmark performance. However, these deep learning models are computationally intensive and require large amounts of memory and processing power, which limits their deployment to high-performance servers with dedicated GPUs or TPUs.
+  On the one hand, over the past decade, deep learning has revolutionized computer vision in tasks such as image classification, object recognition and image segmentation. Architectures such as ResNet have set new records in benchmark performance. However, these deep learning models are computationally intensive and require large amounts of memory and processing power, which limits their deployment to high-performance servers with dedicated GPUs or TPUs.
   
   On the other hand, edge devices such as smartphones, IoT sensors, drones, and medical wearables, have resource constraints, including limited processing power, memory, and energy. Despite these constraints, edge computing is becoming increasingly important because it reduces latency, lowers dependence on centralized cloud services, and improves privacy by keeping sensitive data local. A key challenge in this field is finding a way to leverage the power of deep learning models while addressing the limitations of edge devices.
 
   \section{Model Compression}
   
-  The deployment of advanced AI models on edge devices with limited resources has motivated substantial research into model compression techniques. The central goal of this field is to balance the power of large models with the requirements of efficiency, latency and privacy. This field has evolved from applying individual optimization techniques in isolation to designing integrated, multi-stage pipelines that synergistically combine methods for maximum efficiency.
+  The deployment of advanced AI models on edge devices with limited resources has motivated substantial research into model compression techniques. The central goal of this field is to balance the power of large models with the requirements of efficiency, latency, and privacy. This field has evolved from applying individual optimization techniques in isolation to designing integrated, multi-stage pipelines that synergistically combine methods for maximum efficiency.
   
   There are several ways to make deep learning models more efficient without sacrificing accuracy with the following core components of this project: Knowledge Distillation (KD) shrinks the knowledge base \cite{hinton2015distillingknowledgeneuralnetwork}, Parameter-Efficient Fine-Tuning (PEFT) \cite{zhang2025parameterefficientfinetuningfoundationmodels} with a specific focus on Low-Rank Adaptation (LoRA) fine-tunes for specific tasks \cite{hu2021loralowrankadaptationlarge}, and Quantization further compresses the model for deployment.
   
@@ -42,19 +42,17 @@
   
   \section{Knowledge Distillation}
   
-  A critical analysis of seminal and recent works reveals a clear trajectory in the field. Initially, techniques were developed to solve singular problems, e.g. KD for knowledge transfer and LoRA for tuning efficiency.
-  
-  Hinton, Vinyals, \& Dean focused exclusively on the concept of transferring "dark knowledge" from a teacher to a student model, establishing the theoretical groundwork for response-based distillation \cite{hinton2015distillingknowledgeneuralnetwork}. Although their work showed that a student model could learn a richer structure by training on the teacher's outputs, they didn't address the efficiency of adapting the distilled model to new tasks.
-  
   Knowledge Distillation is a machine learning technique that aims to transfer the learnings of a large pre-trained model to a smaller and more compact one so that the “student” mimics the behaviour of the “teacher” \cite{hinton2015distillingknowledgeneuralnetwork} by matching its predictions. It is usually applied to deep neural networks with many layers and learnable parameters. The main idea is to use soft probabilities of the larger network to supervise the smaller one, which reveal more information than the class labels alone. Soft targets can be estimated by a softmax function as:
   % Softened softmax with temperature
   \[
   q_i = 
   \frac{\exp\left(z_i / T\right)}
   {\sum_j \exp\left(z_j / T\right)}
-  \]
+  \]	
+ 
+  where z are the logits and T is the temperature parameter, a scaling factor applied to logits before softmax.
   
-  The loss for the student is then a linear combination of cross entropy loss $L_{CE}$ and knowledge distillation loss $L_{KD}$.
+  The loss for the student is then a linear combination of cross entropy loss $L_{CE}$ and knowledge distillation loss $L_{KD}$:
   % Combined hard-label + distillation loss
   \[
   L = 
@@ -65,24 +63,47 @@
   \right)
   \]
   
+  where $\alpha$ is a hyperparameter that balances the importance of the teacher's logits versus the hard labels.
+  
+  We have:
+  \[L_{CE} = -\sum_{k=1}^{K} y_k \log(p_k)\]
+  
+  where $y_k$ is the true probability of class k and $p_k$ is the predicted probability of class k.
+  
+  [vanilla knowledge distillation loss function]
+  %\[\] TODO
+  
+  
+  
   Knowledge Distillation techniques have been employed across multiple fields, including speech recognition, natural language processing, image recognition \cite{he2015deepresiduallearningimage} and object detection. KD is an effective means of transferring the capabilities from a large model or set of models to a single smaller model.
   
   AI model's accuracy and capacity are not enough to make the model useful - it has a limit of time, memory and computational resources. While top performing models are often too large for most applications, small models are faster yet lack the accuracy and knowledge capacity of the first.
   
+  A critical analysis of seminal and recent works reveals a clear trajectory in the field. Initially, techniques were developed to solve singular problems, e.g. KD for knowledge transfer and LoRA for tuning efficiency.
+  
+  Hinton, Vinyals, \& Dean focused exclusively on the concept of transferring "knowledge" from a teacher to a student model, establishing the theoretical groundwork for response-based distillation \cite{hinton2015distillingknowledgeneuralnetwork}. Although their work showed that a student model could learn a richer structure by training on the teacher's outputs, they did not address the efficiency of adapting the distilled model to new tasks.
+  
   \section{Low-Rank Adaptation}
   
-  Low-Rank Adaptation (LoRA) was originally developed for efficient fine-tuning in large language models (LLMs). LoRA offers an opportunity to fine-tune compact models without enlarging their size. Hu et al. developed LoRA to address the computational infeasibility of fine-tuning large models, reducing trainable parameters, memory usage and training time by freezing pre-trained weights and training only small, low-rank adapter matrices inserted into existing weight structures, without increasing inference latency \cite{hu2021loralowrankadaptationlarge}. The pre-trained model’s original weight matrix is frozen and only the smaller matrices are updated during training. Yet, the LoRA paper did not focus on reducing the size of the base model itself, which remained a significant barrier for edge deployment.
+  LoRA was originally developed for efficient fine-tuning in large language models (LLMs). LoRA offers an opportunity to fine-tune compact models without enlarging their size. Hu et al. developed LoRA to address the computational infeasibility of fine-tuning large models, reducing trainable parameters, memory usage and training time by freezing pre-trained weights and training only small, low-rank adapter matrices inserted into existing weight structures, without increasing inference latency \cite{hu2021loralowrankadaptationlarge}. The pre-trained model’s original weight matrix is frozen and only the smaller matrices are updated during training. Yet, the LoRA paper did not focus on reducing the size of the base model itself, which remained a significant barrier for edge deployment.
   
   Instead of retraining the whole model, LoRA freezes the original weights and parameters of the model. On top of this original model, it adds a lightweight addition called a low-rank matrix, which is then applied to new inputs to get results specific to the context. The low-rank matrix adjusts for the weights of the original model so that outputs match the desired use case.
   
-  The diagram shows how the additional matrices A and B are updated by using smaller matrices of rank r. Once LoRA training is complete, smaller weights are merged into a new weight matrix, without modifying the original weights W of the pre-trained model and not needing to store a complete copy of the model. In the training process after calculating the loss, the loss is only backpropagated to the LoRA matrices.
-  [insert diagram of LoRA]
+  %TODO remember to insert and give the figure number
+  Figure 2.1 shows how the additional matrices A and B are updated by using smaller matrices of rank r. Once LoRA training is complete, smaller weights are merged into a new weight matrix, without modifying the original weights W of the pre-trained model and not needing to store a complete copy of the model. In the training process after calculating the loss, the loss is only backpropagated to the LoRA matrices.
+  
+  \begin{figure}[h!]
+  	\centering
+  	\includegraphics[width=0.35\linewidth]{img/lora-diagram.png}
+  	\caption{Reparametrization. Illustration from Edward J. Hu's work \cite{hu2021loralowrankadaptationlarge}}
+  	\label{fig:placeholder}
+  \end{figure}
 
   Full fine-tuning requires storing optimizer states for all parameters. Since LoRA freezes most of the model's weights, GPU memory usage is lower than full fine-tuning
   storage efficiency training speed.
 
-  Forward pass:
-  \[ h = W_0 x + \Delta W x = W_0 x + BAx \]
+  %Forward pass: %TODO When you introduce mathematical quantities, always define them
+  %\[ h = W_0 x + \Delta W x = W_0 x + BAx \]
   
   \section{Quantization}
   
@@ -94,17 +115,17 @@
   
   In contrast, quantization-aware training (QAT) applies quantization during training, allowing the model to adapt to reduced precision and mitigating accuracy degradation. This approach generally achieves higher accuracy than PTQ but requires access to training data and increased training complexity.
   
-  \section{Federated Edge Learning}
+  %\section{Federated Edge Learning}
   
-  In many real-world applications (e.g., healthcare, smart cities), it is impractical to centralize user data for privacy concerns. Federated learning (FL) enables decentralized training across distributed devices while keeping raw data local. However, FL aggravates the need for efficient models because each device must independently train and update parameters under limited resources. By combining KD, LoRA, and quantization, the proposed pipeline aligns with federated edge learning, ensuring that lightweight models can still learn collaboratively without overwhelming device capabilities.
+  %In many real-world applications (e.g., healthcare, smart cities), it is impractical to centralize user data for privacy concerns. Federated learning (FL) enables decentralized training across distributed devices while keeping raw data local. However, FL aggravates the need for efficient models because each device must independently train and update parameters under limited resources. By combining KD, LoRA, and quantization, the proposed pipeline aligns with federated edge learning, ensuring that lightweight models can still learn collaboratively without overwhelming device capabilities.
   
-  The evolution of compression pipelines is further enriched by integrating principles from information theory and paradigms like Federated Edge Learning (FEL) \cite{wu2024knowledgedistillationfederatededge}. Knowledge distillation, seen through an information-theoretic perspective, aims for a student model to compress input while maximizing information from the teacher's prediction, which implies optimal teachers might be intermediate models, preserving "dark knowledge" — mutual information crucial for generalization often lost in fully converged models \cite{wang2022efficientknowledgedistillationmodel}.
+  %The evolution of compression pipelines is further enriched by integrating principles from information theory and paradigms like Federated Edge Learning (FEL) \cite{wu2024knowledgedistillationfederatededge}. Knowledge distillation, seen through an information-theoretic perspective, aims for a student model to compress input while maximizing information from the teacher's prediction, which implies optimal teachers might be intermediate models, preserving "dark knowledge" — mutual information crucial for generalization often lost in fully converged models \cite{wang2022efficientknowledgedistillationmodel}.
   
-  Concurrently, the rise of FEL has positioned knowledge distillation as a critical enabler for privacy-preserving, decentralized machine learning. In Federated Distillation (FD), instead of exchanging high-dimensional model parameters, clients exchange compact model outputs (logits) on a shared, public dataset, allowing heterogeneous models to collaboratively train without sharing private data \cite{wu2024knowledgedistillationfederatededge}.
+  %Concurrently, the rise of FEL has positioned knowledge distillation as a critical enabler for privacy-preserving, decentralized machine learning. In Federated Distillation (FD), instead of exchanging high-dimensional model parameters, clients exchange compact model outputs (logits) on a shared, public dataset, allowing heterogeneous models to collaboratively train without sharing private data \cite{wu2024knowledgedistillationfederatededge}.
   
-  This project meets at the intersection of these trends, using information-theoretic concepts to guide the distillation process and structuring the pipeline in a way that is directly applicable to a future federated deployment.
+  %This project meets at the intersection of these trends, using information-theoretic concepts to guide the distillation process and structuring the pipeline in a way that is directly applicable to a future federated deployment.
   
-  While these multi-stage pipelines are emerging, particularly in natural language processing, a systematic, empirical study of a sequential KD, LoRA and Quantization pipeline for computer vision remains a clear research gap.
+  While multi-stage pipelines are emerging, particularly in natural language processing, a systematic, empirical study of a sequential KD, LoRA and Quantization pipeline for computer vision remains a clear research gap.
 
 
 

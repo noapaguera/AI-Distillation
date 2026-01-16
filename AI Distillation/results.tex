@@ -36,31 +36,58 @@
 	      
     \section{Data Visualization}
     
-    Figure [X] illustrates the baseline accuracy of the student model. These results serve as a primary benchmark for comparison against the distilled model, which is trained using the soft outputs of the teacher model.
-
-    \includegraphics{img/student_baseline_v1.png}
+    Figure 4.1 illustrates the baseline accuracy of the student model. These results serve as a primary benchmark for comparison against the distilled model, which is trained using the soft outputs of the teacher model.
     
+    \begin{figure}[h!]
+    	\centering
+    	\includegraphics[width=1\linewidth]{img/student_baseline_v1.png}
+    	\caption{Baseline MobileNetV2 student model}
+    	\label{fig:placeholder}
+    \end{figure}
+
     \textbf{Knowledge Distillation Results}
     
-    The implementation of the knowledge distillation phase aimed to transfer the predictions of the ResNet18 to the more compact MobileNetV2. Initial results indicate that the student model achieved an accuracy of 62\%, successfully recovering 76\% of the teacher's performance. This suggests that the soft targets provided by the teacher were effective in regularizing the student's training, despite the significant reduction in total parameter count.
+    The implementation of the knowledge distillation phase aimed to transfer the predictions of the ResNet18 to the more compact MobileNetV2. The results in Figure \ref{fig:distil} indicate that the student model achieved an accuracy of 79.2\%, successfully recovering 97\% of the teacher's performance. This suggests that the soft targets provided by the teacher were effective in regularizing the student's training, despite the significant reduction in total parameter count.
     
-    \includegraphics{img/KD_v1.png}
+    \begin{figure}[h!]
+    	\centering
+    	\includegraphics[width=1\linewidth]{img/KD_v1.png}
+    	\caption{MobileNetV2 student model after distillation}
+    	\label{fig:distil}
+    \end{figure}
        
     \textbf{LoRA \& Quantization Trade-offs}
     
-    To further optimize the model for deployment, LoRA fine-tuning was applied with 8-bit quantization. While quantization typically introduces a quantization error that degrades performance, the LoRA adapters effectively compensated for this loss. The final quantized model reached a compressed size of 79\% compared to the baseline, with an accuracy degradation of only 12\%.
+    To further optimize the model for deployment, LoRA fine-tuning was applied with 8-bit quantization. While quantization typically introduces a quantization error that degrades performance, the LoRA adapters effectively compensated for this loss. The final quantized model reached a compressed size of 79\% compared to the baseline, with a minimum accuracy degradation.% of only 12\%.
        
-   	[plot]
+    \begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{img/lora_v2.png}
+		\caption{MobileNetV2 student model after LoRA Fine-Tuning}
+		\label{fig:lora-plot}
+	\end{figure}
     
     \section{Discussion}
     
-    In summary, this research successfully established a pipeline for model compression. However, several limitations must be acknowledged. First, the reliance on a fixed, balanced dataset, while providing a controlled environment for initial testing, may mask the model's performance in real-world, imbalanced scenarios.
+    In summary, this research successfully established a pipeline for model compression. However, several limitations must be acknowledged. First, the reliance on a fixed, balanced dataset, while providing a controlled environment for testing, may mask the model's performance in real-world, imbalanced scenarios.
     
     Secondly, the observed inconsistencies in the LoRA fine-tuning phase suggest a sensitivity to hyperparameter settings that was not fully captured within the current training volume. The inclusion of synthetic data generation could address these variances in future iterations.
     
     Despite these constraints, the results demonstrate that the proposed pipeline achieves >75\% student model accuracy, providing a viable framework for further optimization in image classification.
     
-    [Final summary table comparing models' accuracy, size, latency]
+    \begin{table}[h!]
+    	\begin{tabular}{|l|l|l|l|l|}
+    		\hline
+    		Model stage                  & Accuracy (\%) & Size (MB) & Inference (ms) & FLOPS   \\ \hline
+    		Teacher                      & 80.5          & 44.8      & 95.1           & 74.440M \\ \hline
+    		Student without distillation & 76.4          & 9.19      & 66.2           & 13.340M \\ \hline
+    		Distilled Student            & 79.0          & 9.19      & 66.2           & 13.340M \\ \hline
+    		LoRA-tuned Student           & 79.3          & 9.22      & 77.2           & 13.340M \\ \hline
+    		Quantized Student            & 79.5          & 9.18      & 15.1           & 13.340M \\ \hline
+    	\end{tabular}
+    	\caption{Summary table comparing models' metrics}
+    \end{table}
+    
 
 \fi
 

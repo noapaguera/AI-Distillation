@@ -13,7 +13,10 @@
   
   This chapter describes the methodology employed to design, train and evaluate the knowledge distillation framework proposed in this study. It outlines the dataset, data preparation, teacher and student model architectures, training procedures, evaluation metrics and experimental setup. %Each section provides explanation of the methods, tools and reasoning behind key decisions.
   
-  This research follows an experimental design where a teacher model is used to supervise the training of a smaller student model. A series of experiments evaluate the impact of different distillation strategies.
+  This research follows an experimental design where a teacher model is used to supervise the training of a smaller student model. A series of experiments evaluate the impact the distillation process in the task of image classification.
+  
+  Image classification serves as a fundamental block of computer vision, aiming to categorize an input image into a single, predefined class. While humans perform this task intuitively, it presents a significant computational challenge, where the machine must interpret raw pixel intensity values as objects. Modern approaches leverage Deep Learning architectures, such as Convolutional Neural Networks (CNNs), to automatically extract features from data. By learning patterns of increasing complexity, these models can generalize across variations in viewpoint and lighting, enabling applications ranging from medical diagnostics to autonomous navigation.
+  
 \fi
 
 \ifcase\doclanguage\or
@@ -30,12 +33,10 @@
   
   For the initial evaluations of the model, we conducted experiments to evaluate RestNet18 and MobileNetV2 performance using the public available CIFAR-10 and CIFAR-100 datasets. The CIFAR-10 and CIFAR-100 datasets are labeled subsets of the 80 million tiny images dataset. This dataset was chosen because it is an established Computer Vision dataset used for object recognition and it allows to quickly try different algorithms, ideal for benchmarking and preliminary evaluations.
   
-  Data preparation is a crucial step that transforms the input data into the format required by the model, ensuring it can be correctly processed and learned from.
+  Data preparation is a crucial step that transforms the input data into the format required by the model, ensuring it can be correctly processed and learned from. The dataset is divided in training, validation and test. 
+  %  These splits are NOT defined by the dataset
   
   The images are normalized to ensure consistency in the data format. Data normalization prevents large values from dominating the learning process by ensuring numerical features are on a similar scale for optimal model performance. It avoids numerical instability, speeds up convergence in gradient-based algorithms and ensures features contribute equally.
-  
-  The dataset is divided in training, validation and test. 
-%  These splits are NOT defined by the dataset
   
   \section{Model Training and Fine-Tuning}
   

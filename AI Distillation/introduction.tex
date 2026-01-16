@@ -14,17 +14,28 @@
 \section{Motivation}
 \fi
 
-This project aims to enhance the efficiency and usability of large AI models, specifically deep learning models used in Computer Vision (CV), when deployed on edge devices with limited resources. The aim is to reduce the computational demands of these models without sacrificing performance by developing a modular pipeline that integrates knowledge distillation, LoRA fine-tuning, and quantization techniques. The project systematically quantifies the trade-offs between model performance (accuracy) and efficiency (size, latency, computational cost) at each stage of the pipeline. %applying information-theoretic principles for efficient knowledge transfer and exploring its applicability within a federated edge learning context.
+%TODO review. Highlight more the need to run simpler models at the devices. Give examples of applications
 
-This will be achieved by integrating three core methodologies to shrink a large AI model (ResNet-18) into a compact, efficient version (MobileNetV2):
+This project aims to enhance the efficiency and usability of large Artificial Intelligence (AI) models, specifically deep learning models used in Computer Vision (CV), when deployed on edge devices with limited resources. The aim is to reduce the computational demands of these models with minimal performance degradation by developing a modular pipeline that integrates knowledge distillation, Low-Rank Adaptation (LoRA) fine-tuning, and quantization techniques. The project systematically quantifies the trade-offs between model performance (accuracy) and efficiency (size, latency, computational cost) at each stage of the pipeline. %applying information-theoretic principles for efficient knowledge transfer and exploring its applicability within a federated edge learning context.
+
+%While Large AI models offer high accuracy, their computational footprint often makes them impractical for real-time local execution. By developing a modular pipeline that integrates Knowledge Distillation, Low-Rank Adaptation (LoRA) fine-tuning, and Quantization, this project aims to bridge the gap between performance and efficiency. 
+%This is achieved by integrating three core methodologies to shrink a large AI model (ResNet-18) into a compact, efficient version (MobileNetV2), systematically quantifying the trade-offs between accuracy, latency, and computational cost.
+
+Moving AI from the cloud to the device is necessary for several reasons, such as zero latency, privacy and security, and bandwidth efficiency. Applications requiring immediate decisions cannot afford the round-trip delay of sending data to a server. %Sensitive data (such as home security footage or medical vitals) never leaves the device, reducing the risk of interception. Local processing eliminates the cost and energy required to stream high-definition video data constantly over a network.
+
+In practice, simplified models are relevant for personal privacy. In healthcare, wearable devices use compact AI to monitor cardiac rhythms or glucose levels directly on the user’s wrist, ensuring that sensitive medical data never leaves the device. This local processing is also important for smart home security, the ability to run AI on "lite" hardware ensures that technology remains functional, private, and energy-efficient in any environment.
+
+Beyond that, the drive toward simpler models is fueled by the need for autonomy and immediacy. In automotive safety, for instance, driver assistance systems must process video feeds to detect pedestrians or obstacles with near-zero latency; waiting for a cloud server to respond is not an option when millisecond delays determine braking distances. By running these models locally, factories avoid the massive bandwidth costs and security risks associated with streaming constant video to external servers.
+
+This is achieved by integrating three core methodologies to shrink a large AI model (ResNet-18) into a compact, efficient version (MobileNetV2):
 
 \begin{enumerate}
-	\item Knowledge Distillation: Train a small AI model to mimic a larger, more complex one by transferring the teacher’s knowledge into a student. 
-	\item LoRA Fine-Tuning: Adjust the small model for specific tasks without increasing unnecessary size. 
+	\item Knowledge Distillation: Train a small AI model, called "student", to mimic a larger, more complex one, called "teacher" by transferring the teacher’s knowledge into the student. 
+	\item Low-Rank Adaptation (LoRA) Fine-Tuning: Adjust the small model for specific tasks without significantly increasing its size. 
 	\item Quantization: Simplify how the model handles numbers, cutting memory usage and battery drain.
 \end{enumerate}
 
-The project empirically validates this pipeline, providing a clear methodology for developing lightweight, task-specialized AI suitable for edge computing applications. The methodology is grounded in information theory to maximize knowledge transfer and is designed with federated edge learning in mind, enabling collaborative training without centralizing user data.
+The project empirically validates this pipeline, providing a clear methodology for developing lightweight, task-specialized AI suitable for edge computing applications. The methodology is grounded in information theory to maximize knowledge transfer.% and is designed with federated edge learning in mind, enabling collaborative training without centralizing user data.
 
 \ifcase\doclanguage
 \or
@@ -33,10 +44,10 @@ The project empirically validates this pipeline, providing a clear methodology f
   \section{Work Goals}
 \fi
 
-The purpose of this project is to address the deployment of large, powerful AI models on resource-constrained edge devices (e.g., smartphones and IoT sensors) by designing, implementing, and evaluating a modular, three-stage pipeline. This pipeline systematically combines knowledge distillation, Low-Rank Adaptation (LoRA), and quantization to create a lightweight yet functional version of a standard computer vision model.
+The purpose of this project is to address the deployment of large, powerful AI models on resource-constrained edge devices (e.g., smartphones and Internet of Things (IoT) sensors) by designing, implementing, and evaluating a modular, three-stage pipeline. This pipeline systematically combines knowledge distillation, LoRA fine-tuning, and quantization to create a lightweight yet functional version of a standard computer vision model.
 
-Furthermore, the project will be grounded in information theory to guide the distillation process, ensuring that the student model learns to compress the input while preserving the maximum information about the teacher's predictions. %The pipeline is also designed for future deployment in a Federated Edge Learning environment. In this setting, 
-Knowledge distillation is a mechanism that enables communication-efficient and privacy-preserving collaborative training across multiple devices.
+Furthermore, the project is grounded in information theory to guide the distillation process, ensuring that the student model learns to compress the input while preserving the maximum information about the teacher's predictions. %The pipeline is also designed for future deployment in a Federated Edge Learning environment. In this setting, 
+%Knowledge distillation is a mechanism that enables communication-efficient and privacy-preserving collaborative training across multiple devices.
 
 To achieve the main goal of developing and evaluating a compressed student model, the project has the following specific objectives:
 
@@ -49,13 +60,13 @@ To achieve the main goal of developing and evaluating a compressed student model
 		\item Develop a mini-model for hardware with limited resources: Create a compact model based on a method to distill knowledge from a large AI into a smaller, lighter model that can run efficiently on T4 Colab.
 		\item Optimize this Lightweight Version to minimize memory usage for CV by Fine-Tuning with Low-Rank Adaptation: Use techniques like LoRA to further optimize the smaller model for specific tasks, improving its performance without increasing its size significantly.
 	\end{enumerate}
-	\item Reduce Computational Costs through Quantization and Edge Optimization: Apply quantization strategies to shrink the model’s size and lower its energy consumption, making it suitable for real-world applications. In other words, implement quantization-aware distillation methods to reduce model size and computational complexity, ensuring viability for edge deployment. 
+	\item Reduce Computational Costs through Quantization: Apply quantization strategies to shrink the model’s size and lower its energy consumption, making it suitable for real-world applications. In other words, implement quantization-aware distillation methods to reduce model size and computational complexity, ensuring viability for edge deployment. 
 	\item Evaluate the resulting AI model against the original using standard metrics for speed, memory usage, and accuracy:
 	\begin{enumerate}
 		\item Evaluate Performance: Test the optimized model on practical tasks (e.g., object classification), analyzing how well it balances size, speed, and accuracy.
 		\item Study Fine-Tuning Dynamics: Investigate how the initial distillation phase impacts the efficiency and effectiveness of subsequent LoRA-based fine-tuning, identifying the most critical elements of the original large AI model knowledge for downstream performance.
 	\end{enumerate}
-	The evaluation will be done in parallel with knowledge distillation and fine-tuning. 
+	The evaluation is done in parallel with knowledge distillation and fine-tuning. 
 	% \item Frame the distillation process within an information-theoretic context: Analyze knowledge transfer within an information-theoretic context, and explore extending the above pipeline to a Federated Learning setting for decentralized, privacy-preserving training.
 \end{enumerate}
 
@@ -81,7 +92,7 @@ A set of requirements has been defined to ensure that the developed system meets
 			Evaluation & The resulting model must be evaluated on standard CV benchmarks and framed within an information-theoretic perspective. \\ \hline
 		\end{tabular}
 	}
-	\caption{Requirements table}
+	\caption{Requirements table.}
 	\label{table:requirements_table}
 \end{table}
 
@@ -98,12 +109,13 @@ A set of requirements has been defined to ensure that the developed system meets
 			Development platform         & The developed system must be compatible with major operating systems such as Linux, macOS, Windows. \\ \hline
 		\end{tabular}
 	}
-	\caption{Specifications table}
+	\caption{Specifications table.}
 	\label{table:specifications_table}
 \end{table}
 
 \textbf{Model Architectures:}
 
+%TODO You should provide more details about the architecture of ResNet-18 and MobileNetV2
 The selection of teacher and student models is designed to create a realistic and challenging distillation scenario.
 
 \begin{list}{-}{}
@@ -142,13 +154,13 @@ The project is conducted independently and does not form part of any department 
   Normalment les figures i taules es col·loquen en els entorns \verb|\figure| i \verb|\table|, que poden flotar lliurement en el document. Pots identificar cada flotant amb un \verb|\label|
 \else
 
-  The project is structured into three overlapping phases over 17 weeks (September 1, 2025 – December 20, 2025), ensuring a clear progression from foundational development to advanced analysis.
+  The project is structured into three overlapping phases, ensuring a clear progression from foundational development to advanced analysis.
   
-  Distillation-LoRA Framework \& Initial Evaluation. This phase focuses on implementing the core compression pipeline. The key objective is a functional, fine-tuned student model benchmarked against the original teacher and baseline student.
+  \textit{Distillation-LoRA Framework \& Initial Evaluation}. This phase focuses on implementing the core compression pipeline. The key objective is a functional, fine-tuned student model benchmarked against the original teacher and baseline student.
   
-  Quantization \& Continued Evaluation. This phase builds on Phase 1 by applying the final compression stage, quantization. The objective is the final, fully compressed model, and a complete set of experimental results.
+  \textit{Quantization \& Continued Evaluation}. This phase builds on Phase 1 by applying the final compression stage, quantization. The objective is the final, fully compressed model, and a complete set of experimental results.
   
-  Theoretical Analysis, Final Report, and Submission. This final phase is dedicated to the theoretical framing of the project, in-depth analysis of the results, and writing the thesis document.
+  \textit{Theoretical Analysis, Final Report, and Submission}. This final phase is dedicated to the theoretical framing of the project, in-depth analysis of the results, and writing the thesis document.
    
   \textbf{Work Packages}
   
@@ -196,7 +208,7 @@ The project is conducted independently and does not form part of any department 
   \end{itemize}
   Below is the Gantt diagram with the timeline of the project.
   
-  [insert diagram]
+  %TODO [insert diagram]
   
   %Normally the figures and tables are put in \verb|\figure| and \verb|\table| environments, that can float freely in the document. You can identify each float with a \verb|\label|
 \fi

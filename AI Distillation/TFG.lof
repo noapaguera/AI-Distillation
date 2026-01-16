@@ -3,8 +3,12 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Reparametrization. Illustration from Edward J. Hu's work \blx@tocontentsinit {0}\cite {hu2021loralowrankadaptationlarge}}}{20}{figure.caption.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Baseline MobileNetV2 student model}}{29}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces MobileNetV2 student model after distillation}}{30}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces MobileNetV2 student model after LoRA Fine-Tuning}}{30}{figure.caption.14}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
